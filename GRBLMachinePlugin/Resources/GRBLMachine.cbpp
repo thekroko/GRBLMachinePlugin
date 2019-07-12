@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PostProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0.9.8.0">
+<Notes></Notes>
+<PostFile>
+  {$comment} Made using CamBam - http://www.cambam.co.uk {$endcomment}
+  {$comment} Grbl Post Processor for GRBLMachine V1.0.0.0 {$endcomment}
+  {$header}
+  {$mops}
+  {$footer}
+</PostFile>
+  <Header>
+    {$comment} {$cbfile.name} {$date} {$endcomment}
+    {$tooltable}
+    {$cbfile.header}
+    {$units} {$distancemode} {$cuttercomp(off)}
+    {$toolchange(first)}
+    {$clearance}</Header>
+  <Footer>
+    {$clearance}
+    {$spindle(off)}
+    {$endrewind}
+    {$cbfile.footer}
+  </Footer>
+  <ToolChange>
+    {$clearance}
+    T{$tool.index} M6 ({$part.name}\{$mop.name}\{$tool.name}\{$tool.diameter})
+  </ToolChange>
+  <MOP>
+    {$comment} {$mop.name} {$endcomment}
+    {$toolchange}
+    {$workplane}
+    {$mop.header}
+    {$spindle} {$s}
+    {$blocks}
+    {$mop.footer}
+  </MOP>
+  <G81></G81>
+  <G82></G82>
+  <G83></G83>
+  <CutterCompOff />
+  <CutterCompLeft />
+  <CutterCompRight />
+  <CannedCycleStart />
+  <CannedCycleEnd />
+  <VelocityModeExactStop />
+  <VelocityModeConstantVelocity />
+  <EndRewind />
+  <Repeat />
+  <Drill>
+    {$g0} {$_x} {$_y}
+    {$g0} Z{$mop.retractheight}
+    {$g1} {$_z} {$_f}
+    {$g0} Z{$mop.clearanceplane}</Drill>
+  <DrillDwell>
+    {$g0} {$_x} {$_y}
+    {$g0} Z{$mop.retractheight}
+    {$g1} {$_z} {$_f}
+    G4 {$p}
+    {$g0} Z{$mop.clearanceplane}
+  </DrillDwell>
+  <MaximumArcRadius>
+    1000
+  </MaximumArcRadius>
+</PostProcessor>

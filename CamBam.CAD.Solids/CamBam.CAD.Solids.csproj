@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{509084A8-ED84-4E73-BE61-95B7D2B884FA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CamBam.CAD.Solids</RootNamespace>
+    <AssemblyName>CamBam.CAD.Solids</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CamBam.CAD">
+      <HintPath>..\CamBamLibs\CamBam.CAD.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CamBam.Geom">
+      <HintPath>..\CamBamLibs\CamBam.Geom.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CamBamExtenstions.cs" />
+    <Compile Include="CamBam.CAD.Solids.Plugin.cs" />
+    <Compile Include="ConfigAndSettings.cs" />
+    <Compile Include="DrawRodPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrawRodPanel.Designer.cs">
+      <DependentUpon>DrawRodPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawCylinderPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrawCylinderPanel.Designer.cs">
+      <DependentUpon>DrawCylinderPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawSolidForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DrawSolidForm.Designer.cs">
+      <DependentUpon>DrawSolidForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawSolidPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrawSolidPanel.Designer.cs">
+      <DependentUpon>DrawSolidPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawSolidWithPositionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrawSolidWithPositionPanel.Designer.cs">
+      <DependentUpon>DrawSolidWithPositionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawDiscPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrawDiscPanel.Designer.cs">
+      <DependentUpon>DrawDiscPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawSpherePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrawSpherePanel.Designer.cs">
+      <DependentUpon>DrawSpherePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Solids.cs" />
+    <Compile Include="PluginOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PluginOptions.Designer.cs">
+      <DependentUpon>PluginOptions.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DrawRodPanel.resx">
+      <DependentUpon>DrawRodPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrawCylinderPanel.resx">
+      <DependentUpon>DrawCylinderPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrawSolidForm.resx">
+      <DependentUpon>DrawSolidForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrawSolidPanel.resx">
+      <DependentUpon>DrawSolidPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrawSolidWithPositionPanel.resx">
+      <DependentUpon>DrawSolidWithPositionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrawDiscPanel.resx">
+      <DependentUpon>DrawDiscPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrawSpherePanel.resx">
+      <DependentUpon>DrawSpherePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PluginOptions.resx">
+      <DependentUpon>PluginOptions.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

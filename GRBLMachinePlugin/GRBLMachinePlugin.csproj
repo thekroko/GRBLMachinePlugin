@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{088D83A7-1B43-47DB-B801-1E11FF0F09B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GRBLMachine</RootNamespace>
+    <AssemblyName>GRBLMachinePlugin</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="CamBam.CAD">
+      <HintPath>..\CamBamLibs\CamBam.CAD.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CamBam.Geom">
+      <HintPath>..\CamBamLibs\CamBam.Geom.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutExpander.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AboutExpander.Designer.cs">
+      <DependentUpon>AboutExpander.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigAndSettings.cs" />
+    <Compile Include="ConnectionExpander.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ConnectionExpander.Designer.cs">
+      <DependentUpon>ConnectionExpander.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsoleExpander.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ConsoleExpander.Designer.cs">
+      <DependentUpon>ConsoleExpander.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditModes.cs" />
+    <Compile Include="GRBLButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GRBLButton.Designer.cs">
+      <DependentUpon>GRBLButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRBLMachinePlugin.cs" />
+    <Compile Include="DisplayExpander.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DisplayExpander.Designer.cs">
+      <DependentUpon>DisplayExpander.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expander.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Expander.Designer.cs">
+      <DependentUpon>Expander.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GRBLMachinePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GRBLMachinePage.Designer.cs">
+      <DependentUpon>GRBLMachinePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JoggingExpander.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JoggingExpander.Designer.cs">
+      <DependentUpon>JoggingExpander.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LCDFont.cs" />
+    <Compile Include="ProductionExpander.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProductionExpander.Designer.cs">
+      <DependentUpon>ProductionExpander.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Semaphore.cs" />
+    <Compile Include="ToolChanger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolChanger.Designer.cs">
+      <DependentUpon>ToolChanger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AboutExpander.resx">
+      <DependentUpon>AboutExpander.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConnectionExpander.resx">
+      <DependentUpon>ConnectionExpander.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsoleExpander.resx">
+      <DependentUpon>ConsoleExpander.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayExpander.resx">
+      <DependentUpon>DisplayExpander.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expander.resx">
+      <DependentUpon>Expander.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GRBLMachinePage.resx">
+      <DependentUpon>GRBLMachinePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JoggingExpander.resx">
+      <DependentUpon>JoggingExpander.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductionExpander.resx">
+      <DependentUpon>ProductionExpander.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolChanger.resx">
+      <DependentUpon>ToolChanger.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DSEG14Classic-BoldItalic.ttf" />
+    <None Include="Resources\Grbl Logo 150px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_down_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GRBLMachine.cbpp" />
+    <None Include="Resources\LCD_Blank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navigate_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navigate_down2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navigate_minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navigate_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navigate_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navigate_up2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_plain_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_up_left_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_stop_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_down_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_pause_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_play_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_stop_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_plain_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_up_left_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navigate_down_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navigate_down2_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navigate_minus_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navigate_plus_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navigate_up_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navigate_up2_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_play_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wcs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wcs_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kdelogobig.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbox_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_donateCC_LG.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CamBam.CAD.Solids\CamBam.CAD.Solids.csproj">
+      <Project>{509084a8-ed84-4e73-be61-95b7d2b884fa}</Project>
+      <Name>CamBam.CAD.Solids</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
