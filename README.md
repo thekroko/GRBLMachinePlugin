@@ -1,4 +1,6 @@
-﻿[1.0.0a]
+This is a slightly modified version of the GRBLMachinePlugin (based on the v1.0.0 source code posted in the CamBam forum):
+
+[1.0.0a]
 + Added draggable "MouseJog" button for easier jogging
 + Added keyboard arrow shortcuts for jogging
 + Add button for Z-Probe (with user-specified tool offset setting)
