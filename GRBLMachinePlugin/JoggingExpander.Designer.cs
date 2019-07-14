@@ -28,6 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JoggingExpander));
       this.X_Plus = new GRBLMachine.UI.GRBLButton();
       this.X_Min = new GRBLMachine.UI.GRBLButton();
@@ -37,7 +38,6 @@
       this.Z_Min = new GRBLMachine.UI.GRBLButton();
       this.StepXY = new System.Windows.Forms.TextBox();
       this.StepZ = new System.Windows.Forms.TextBox();
-      this.label1 = new System.Windows.Forms.Label();
       this.Inches = new System.Windows.Forms.RadioButton();
       this.Millimeters = new System.Windows.Forms.RadioButton();
       this.ResetXButton = new GRBLMachine.UI.GRBLButton();
@@ -46,11 +46,28 @@
       this.HomeButton = new GRBLMachine.UI.GRBLButton();
       this.OriginButton = new GRBLMachine.UI.GRBLButton();
       this.WCSButton = new GRBLMachine.UI.GRBLButton();
+      this.MouseJog = new GRBLMachine.UI.GRBLButton();
+      this.ZProbeButton = new GRBLMachine.UI.GRBLButton();
+      this.PosA = new GRBLMachine.UI.GRBLButton();
+      this.storedPosCtxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.storeCurrentPositionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.PosB = new GRBLMachine.UI.GRBLButton();
+      this.Goto = new GRBLMachine.UI.GRBLButton();
+      this.GotoText = new System.Windows.Forms.TextBox();
+      this.GotoMouse = new GRBLMachine.UI.GRBLButton();
       this.ContentPanel.SuspendLayout();
+      this.storedPosCtxMenu.SuspendLayout();
       this.SuspendLayout();
       // 
       // ContentPanel
       // 
+      this.ContentPanel.Controls.Add(this.GotoMouse);
+      this.ContentPanel.Controls.Add(this.GotoText);
+      this.ContentPanel.Controls.Add(this.Goto);
+      this.ContentPanel.Controls.Add(this.PosB);
+      this.ContentPanel.Controls.Add(this.PosA);
+      this.ContentPanel.Controls.Add(this.ZProbeButton);
+      this.ContentPanel.Controls.Add(this.MouseJog);
       this.ContentPanel.Controls.Add(this.WCSButton);
       this.ContentPanel.Controls.Add(this.OriginButton);
       this.ContentPanel.Controls.Add(this.HomeButton);
@@ -59,7 +76,6 @@
       this.ContentPanel.Controls.Add(this.ResetXButton);
       this.ContentPanel.Controls.Add(this.Millimeters);
       this.ContentPanel.Controls.Add(this.Inches);
-      this.ContentPanel.Controls.Add(this.label1);
       this.ContentPanel.Controls.Add(this.StepZ);
       this.ContentPanel.Controls.Add(this.StepXY);
       this.ContentPanel.Controls.Add(this.Z_Min);
@@ -69,11 +85,12 @@
       this.ContentPanel.Controls.Add(this.X_Min);
       this.ContentPanel.Controls.Add(this.X_Plus);
       this.ContentPanel.Enabled = false;
-      this.ContentPanel.Size = new System.Drawing.Size(363, 164);
+      this.ContentPanel.Size = new System.Drawing.Size(305, 147);
       // 
       // HeaderLabel
       // 
-      this.HeaderLabel.Size = new System.Drawing.Size(374, 23);
+      this.HeaderLabel.Margin = new System.Windows.Forms.Padding(3, 0, 2, 0);
+      this.HeaderLabel.Size = new System.Drawing.Size(313, 19);
       this.HeaderLabel.Text = "Jogging";
       // 
       // X_Plus
@@ -85,9 +102,10 @@
       this.X_Plus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.X_Plus.Font = new System.Drawing.Font("Arial Black", 7.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.X_Plus.ForeColor = System.Drawing.Color.Yellow;
-      this.X_Plus.Location = new System.Drawing.Point(274, 61);
+      this.X_Plus.Location = new System.Drawing.Point(238, 34);
+      this.X_Plus.Margin = new System.Windows.Forms.Padding(2);
       this.X_Plus.Name = "X_Plus";
-      this.X_Plus.Size = new System.Drawing.Size(36, 36);
+      this.X_Plus.Size = new System.Drawing.Size(27, 29);
       this.X_Plus.TabIndex = 0;
       this.X_Plus.Text = "X+";
       this.TheToolTip.SetToolTip(this.X_Plus, "Step in X+ direction");
@@ -103,9 +121,10 @@
       this.X_Min.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.X_Min.Font = new System.Drawing.Font("Arial Black", 7.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.X_Min.ForeColor = System.Drawing.Color.Yellow;
-      this.X_Min.Location = new System.Drawing.Point(190, 61);
+      this.X_Min.Location = new System.Drawing.Point(175, 34);
+      this.X_Min.Margin = new System.Windows.Forms.Padding(2);
       this.X_Min.Name = "X_Min";
-      this.X_Min.Size = new System.Drawing.Size(36, 36);
+      this.X_Min.Size = new System.Drawing.Size(27, 29);
       this.X_Min.TabIndex = 1;
       this.X_Min.Text = "X-";
       this.TheToolTip.SetToolTip(this.X_Min, "Step in X- direction");
@@ -121,9 +140,10 @@
       this.Y_Plus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.Y_Plus.Font = new System.Drawing.Font("Arial Black", 7.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Y_Plus.ForeColor = System.Drawing.Color.Yellow;
-      this.Y_Plus.Location = new System.Drawing.Point(232, 40);
+      this.Y_Plus.Location = new System.Drawing.Point(207, 6);
+      this.Y_Plus.Margin = new System.Windows.Forms.Padding(2);
       this.Y_Plus.Name = "Y_Plus";
-      this.Y_Plus.Size = new System.Drawing.Size(36, 36);
+      this.Y_Plus.Size = new System.Drawing.Size(27, 29);
       this.Y_Plus.TabIndex = 2;
       this.Y_Plus.Text = "Y+";
       this.TheToolTip.SetToolTip(this.Y_Plus, "Step in Y+ direction");
@@ -139,9 +159,10 @@
       this.Y_Min.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.Y_Min.Font = new System.Drawing.Font("Arial Black", 7.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Y_Min.ForeColor = System.Drawing.Color.Yellow;
-      this.Y_Min.Location = new System.Drawing.Point(232, 81);
+      this.Y_Min.Location = new System.Drawing.Point(207, 64);
+      this.Y_Min.Margin = new System.Windows.Forms.Padding(2);
       this.Y_Min.Name = "Y_Min";
-      this.Y_Min.Size = new System.Drawing.Size(36, 36);
+      this.Y_Min.Size = new System.Drawing.Size(27, 29);
       this.Y_Min.TabIndex = 3;
       this.Y_Min.Text = "Y-";
       this.TheToolTip.SetToolTip(this.Y_Min, "Step in Y- direction");
@@ -157,9 +178,10 @@
       this.Z_Plus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.Z_Plus.Font = new System.Drawing.Font("Arial Black", 7.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Z_Plus.ForeColor = System.Drawing.Color.Yellow;
-      this.Z_Plus.Location = new System.Drawing.Point(316, 40);
+      this.Z_Plus.Location = new System.Drawing.Point(271, 33);
+      this.Z_Plus.Margin = new System.Windows.Forms.Padding(2);
       this.Z_Plus.Name = "Z_Plus";
-      this.Z_Plus.Size = new System.Drawing.Size(36, 36);
+      this.Z_Plus.Size = new System.Drawing.Size(27, 29);
       this.Z_Plus.TabIndex = 4;
       this.Z_Plus.Text = "Z+";
       this.TheToolTip.SetToolTip(this.Z_Plus, "Step in X+ direction");
@@ -175,9 +197,10 @@
       this.Z_Min.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.Z_Min.Font = new System.Drawing.Font("Arial Black", 7.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Z_Min.ForeColor = System.Drawing.Color.Yellow;
-      this.Z_Min.Location = new System.Drawing.Point(316, 81);
+      this.Z_Min.Location = new System.Drawing.Point(271, 61);
+      this.Z_Min.Margin = new System.Windows.Forms.Padding(2);
       this.Z_Min.Name = "Z_Min";
-      this.Z_Min.Size = new System.Drawing.Size(36, 36);
+      this.Z_Min.Size = new System.Drawing.Size(27, 29);
       this.Z_Min.TabIndex = 5;
       this.Z_Min.Text = "Z-";
       this.TheToolTip.SetToolTip(this.Z_Min, "Step in Z- direction");
@@ -187,9 +210,10 @@
       // StepXY
       // 
       this.StepXY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.StepXY.Location = new System.Drawing.Point(232, 12);
+      this.StepXY.Location = new System.Drawing.Point(174, 10);
+      this.StepXY.Margin = new System.Windows.Forms.Padding(2);
       this.StepXY.Name = "StepXY";
-      this.StepXY.Size = new System.Drawing.Size(36, 22);
+      this.StepXY.Size = new System.Drawing.Size(28, 20);
       this.StepXY.TabIndex = 6;
       this.StepXY.Text = "10";
       this.StepXY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -199,32 +223,24 @@
       // StepZ
       // 
       this.StepZ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.StepZ.Location = new System.Drawing.Point(316, 12);
+      this.StepZ.Location = new System.Drawing.Point(270, 11);
+      this.StepZ.Margin = new System.Windows.Forms.Padding(2);
       this.StepZ.Name = "StepZ";
-      this.StepZ.Size = new System.Drawing.Size(36, 22);
+      this.StepZ.Size = new System.Drawing.Size(28, 20);
       this.StepZ.TabIndex = 7;
       this.StepZ.Text = "5";
       this.StepZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
       this.TheToolTip.SetToolTip(this.StepZ, "Step value in Z directions");
       this.StepZ.TextChanged += new System.EventHandler(this.StepZ_TextChanged);
       // 
-      // label1
-      // 
-      this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(187, 15);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(41, 17);
-      this.label1.TabIndex = 8;
-      this.label1.Text = "Step:";
-      // 
       // Inches
       // 
       this.Inches.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.Inches.AutoSize = true;
-      this.Inches.Location = new System.Drawing.Point(190, 123);
+      this.Inches.Location = new System.Drawing.Point(119, 52);
+      this.Inches.Margin = new System.Windows.Forms.Padding(2);
       this.Inches.Name = "Inches";
-      this.Inches.Size = new System.Drawing.Size(55, 21);
+      this.Inches.Size = new System.Drawing.Size(45, 17);
       this.Inches.TabIndex = 9;
       this.Inches.Text = "inch";
       this.Inches.UseVisualStyleBackColor = true;
@@ -235,9 +251,10 @@
       this.Millimeters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.Millimeters.AutoSize = true;
       this.Millimeters.Checked = true;
-      this.Millimeters.Location = new System.Drawing.Point(274, 123);
+      this.Millimeters.Location = new System.Drawing.Point(119, 68);
+      this.Millimeters.Margin = new System.Windows.Forms.Padding(2);
       this.Millimeters.Name = "Millimeters";
-      this.Millimeters.Size = new System.Drawing.Size(51, 21);
+      this.Millimeters.Size = new System.Drawing.Size(41, 17);
       this.Millimeters.TabIndex = 10;
       this.Millimeters.TabStop = true;
       this.Millimeters.Text = "mm";
@@ -251,9 +268,10 @@
       this.ResetXButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ResetXButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.ResetXButton.ForeColor = System.Drawing.Color.Yellow;
-      this.ResetXButton.Location = new System.Drawing.Point(12, 19);
+      this.ResetXButton.Location = new System.Drawing.Point(9, 7);
+      this.ResetXButton.Margin = new System.Windows.Forms.Padding(2);
       this.ResetXButton.Name = "ResetXButton";
-      this.ResetXButton.Size = new System.Drawing.Size(61, 36);
+      this.ResetXButton.Size = new System.Drawing.Size(46, 29);
       this.ResetXButton.TabIndex = 11;
       this.ResetXButton.Text = "X=0";
       this.TheToolTip.SetToolTip(this.ResetXButton, "Reset X-Axis WCS origin to zero");
@@ -268,9 +286,10 @@
       this.ResetYButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ResetYButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.ResetYButton.ForeColor = System.Drawing.Color.Yellow;
-      this.ResetYButton.Location = new System.Drawing.Point(12, 61);
+      this.ResetYButton.Location = new System.Drawing.Point(59, 7);
+      this.ResetYButton.Margin = new System.Windows.Forms.Padding(2);
       this.ResetYButton.Name = "ResetYButton";
-      this.ResetYButton.Size = new System.Drawing.Size(61, 36);
+      this.ResetYButton.Size = new System.Drawing.Size(46, 29);
       this.ResetYButton.TabIndex = 12;
       this.ResetYButton.Text = "Y=0";
       this.TheToolTip.SetToolTip(this.ResetYButton, "Reset Y-Axis WCS origin to zero");
@@ -285,9 +304,10 @@
       this.ResetZButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ResetZButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.ResetZButton.ForeColor = System.Drawing.Color.Yellow;
-      this.ResetZButton.Location = new System.Drawing.Point(12, 103);
+      this.ResetZButton.Location = new System.Drawing.Point(9, 35);
+      this.ResetZButton.Margin = new System.Windows.Forms.Padding(2);
       this.ResetZButton.Name = "ResetZButton";
-      this.ResetZButton.Size = new System.Drawing.Size(61, 36);
+      this.ResetZButton.Size = new System.Drawing.Size(46, 29);
       this.ResetZButton.TabIndex = 13;
       this.ResetZButton.Text = "Z=0";
       this.TheToolTip.SetToolTip(this.ResetZButton, "Reset Z-Axis WCS origin to zero");
@@ -303,9 +323,10 @@
       this.HomeButton.Enabled = false;
       this.HomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.HomeButton.ForeColor = System.Drawing.Color.Yellow;
-      this.HomeButton.Location = new System.Drawing.Point(79, 19);
+      this.HomeButton.Location = new System.Drawing.Point(9, 64);
+      this.HomeButton.Margin = new System.Windows.Forms.Padding(2);
       this.HomeButton.Name = "HomeButton";
-      this.HomeButton.Size = new System.Drawing.Size(61, 36);
+      this.HomeButton.Size = new System.Drawing.Size(46, 29);
       this.HomeButton.TabIndex = 14;
       this.TheToolTip.SetToolTip(this.HomeButton, "Perform Homing Cycle");
       this.HomeButton.UseVisualStyleBackColor = false;
@@ -319,9 +340,10 @@
       this.OriginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.OriginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.OriginButton.ForeColor = System.Drawing.Color.Yellow;
-      this.OriginButton.Location = new System.Drawing.Point(79, 61);
+      this.OriginButton.Location = new System.Drawing.Point(59, 64);
+      this.OriginButton.Margin = new System.Windows.Forms.Padding(2);
       this.OriginButton.Name = "OriginButton";
-      this.OriginButton.Size = new System.Drawing.Size(61, 36);
+      this.OriginButton.Size = new System.Drawing.Size(46, 29);
       this.OriginButton.TabIndex = 15;
       this.OriginButton.Text = "0,0,0";
       this.TheToolTip.SetToolTip(this.OriginButton, "Move to Origin");
@@ -336,22 +358,164 @@
       this.WCSButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.WCSButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.WCSButton.ForeColor = System.Drawing.Color.Yellow;
-      this.WCSButton.Location = new System.Drawing.Point(79, 103);
+      this.WCSButton.Location = new System.Drawing.Point(109, 7);
+      this.WCSButton.Margin = new System.Windows.Forms.Padding(2);
       this.WCSButton.Name = "WCSButton";
-      this.WCSButton.Size = new System.Drawing.Size(61, 36);
+      this.WCSButton.Size = new System.Drawing.Size(46, 29);
       this.WCSButton.TabIndex = 16;
       this.TheToolTip.SetToolTip(this.WCSButton, "Set WCS Origin to 0,0,0");
       this.WCSButton.UseVisualStyleBackColor = false;
       this.WCSButton.Click += new System.EventHandler(this.WCSButton_Click);
       // 
+      // MouseJog
+      // 
+      this.MouseJog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.MouseJog.BackgroundImage = global::GRBLMachine.Properties.Resources.nav_plain_blue;
+      this.MouseJog.BackgroundImageDisabled = global::GRBLMachine.Properties.Resources.nav_plain_gray;
+      this.MouseJog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+      this.MouseJog.Location = new System.Drawing.Point(207, 34);
+      this.MouseJog.Name = "MouseJog";
+      this.MouseJog.Size = new System.Drawing.Size(26, 29);
+      this.MouseJog.TabIndex = 17;
+      this.TheToolTip.SetToolTip(this.MouseJog, "Mouse Jog (drag)");
+      this.MouseJog.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseJog_MouseDown);
+      this.MouseJog.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseJog_MouseMove);
+      this.MouseJog.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseJog_MouseUp);
+      // 
+      // ZProbeButton
+      // 
+      this.ZProbeButton.BackColor = System.Drawing.SystemColors.ControlDark;
+      this.ZProbeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ZProbeButton.BackgroundImage")));
+      this.ZProbeButton.BackgroundImageDisabled = global::GRBLMachine.Properties.Resources.media_stop_gray;
+      this.ZProbeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.ZProbeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ZProbeButton.ForeColor = System.Drawing.Color.Yellow;
+      this.ZProbeButton.Location = new System.Drawing.Point(59, 35);
+      this.ZProbeButton.Margin = new System.Windows.Forms.Padding(2);
+      this.ZProbeButton.Name = "ZProbeButton";
+      this.ZProbeButton.Size = new System.Drawing.Size(46, 29);
+      this.ZProbeButton.TabIndex = 18;
+      this.ZProbeButton.Text = "Z-PB";
+      this.TheToolTip.SetToolTip(this.ZProbeButton, "Execute Z-Probe and apply Tool Offset");
+      this.ZProbeButton.UseVisualStyleBackColor = false;
+      this.ZProbeButton.Click += new System.EventHandler(this.ZProbeButton_Click);
+      // 
+      // PosA
+      // 
+      this.PosA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+      this.PosA.BackColor = System.Drawing.SystemColors.ControlDark;
+      this.PosA.BackgroundImage = global::GRBLMachine.Properties.Resources.media_stop_yllw;
+      this.PosA.BackgroundImageDisabled = global::GRBLMachine.Properties.Resources.media_stop_gray;
+      this.PosA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.PosA.ContextMenuStrip = this.storedPosCtxMenu;
+      this.PosA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.PosA.ForeColor = System.Drawing.Color.White;
+      this.PosA.Location = new System.Drawing.Point(9, 117);
+      this.PosA.Margin = new System.Windows.Forms.Padding(2);
+      this.PosA.Name = "PosA";
+      this.PosA.Size = new System.Drawing.Size(46, 29);
+      this.PosA.TabIndex = 19;
+      this.PosA.Text = "PosA";
+      this.TheToolTip.SetToolTip(this.PosA, "Go to stored position A");
+      this.PosA.UseVisualStyleBackColor = false;
+      this.PosA.Click += new System.EventHandler(this.PosA_Click);
+      // 
+      // storedPosCtxMenu
+      // 
+      this.storedPosCtxMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.storeCurrentPositionToolStripMenuItem});
+      this.storedPosCtxMenu.Name = "storedPosCtxMenu";
+      this.storedPosCtxMenu.Size = new System.Drawing.Size(191, 26);
+      // 
+      // storeCurrentPositionToolStripMenuItem
+      // 
+      this.storeCurrentPositionToolStripMenuItem.Name = "storeCurrentPositionToolStripMenuItem";
+      this.storeCurrentPositionToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+      this.storeCurrentPositionToolStripMenuItem.Text = "Store Current Position";
+      this.storeCurrentPositionToolStripMenuItem.Click += new System.EventHandler(this.storeCurrentPositionToolStripMenuItem_Click);
+      // 
+      // PosB
+      // 
+      this.PosB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+      this.PosB.BackColor = System.Drawing.SystemColors.ControlDark;
+      this.PosB.BackgroundImage = global::GRBLMachine.Properties.Resources.media_stop_yllw;
+      this.PosB.BackgroundImageDisabled = global::GRBLMachine.Properties.Resources.media_stop_gray;
+      this.PosB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.PosB.ContextMenuStrip = this.storedPosCtxMenu;
+      this.PosB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.PosB.ForeColor = System.Drawing.Color.White;
+      this.PosB.Location = new System.Drawing.Point(59, 117);
+      this.PosB.Margin = new System.Windows.Forms.Padding(2);
+      this.PosB.Name = "PosB";
+      this.PosB.Size = new System.Drawing.Size(46, 29);
+      this.PosB.TabIndex = 20;
+      this.PosB.Text = "PosB";
+      this.TheToolTip.SetToolTip(this.PosB, "Go to stored position B");
+      this.PosB.UseVisualStyleBackColor = false;
+      this.PosB.Click += new System.EventHandler(this.PosB_Click);
+      // 
+      // Goto
+      // 
+      this.Goto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+      this.Goto.BackColor = System.Drawing.SystemColors.ControlDark;
+      this.Goto.BackgroundImage = global::GRBLMachine.Properties.Resources.media_stop_yllw;
+      this.Goto.BackgroundImageDisabled = global::GRBLMachine.Properties.Resources.media_stop_gray;
+      this.Goto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.Goto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.Goto.ForeColor = System.Drawing.Color.White;
+      this.Goto.Location = new System.Drawing.Point(118, 117);
+      this.Goto.Margin = new System.Windows.Forms.Padding(2);
+      this.Goto.Name = "Goto";
+      this.Goto.Size = new System.Drawing.Size(58, 29);
+      this.Goto.TabIndex = 21;
+      this.Goto.Text = "Goto >";
+      this.TheToolTip.SetToolTip(this.Goto, "Go to specified position in text box");
+      this.Goto.UseVisualStyleBackColor = false;
+      this.Goto.Click += new System.EventHandler(this.Goto_Click);
+      // 
+      // GotoText
+      // 
+      this.GotoText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.GotoText.Location = new System.Drawing.Point(180, 122);
+      this.GotoText.Margin = new System.Windows.Forms.Padding(2);
+      this.GotoText.Name = "GotoText";
+      this.GotoText.Size = new System.Drawing.Size(46, 20);
+      this.GotoText.TabIndex = 22;
+      this.GotoText.Text = "X0 Y0";
+      this.TheToolTip.SetToolTip(this.GotoText, "Step value for X and Y directions");
+      // 
+      // GotoMouse
+      // 
+      this.GotoMouse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.GotoMouse.BackColor = System.Drawing.SystemColors.ControlDark;
+      this.GotoMouse.BackgroundImage = global::GRBLMachine.Properties.Resources.media_stop_yllw;
+      this.GotoMouse.BackgroundImageDisabled = global::GRBLMachine.Properties.Resources.media_stop_gray;
+      this.GotoMouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.GotoMouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.GotoMouse.ForeColor = System.Drawing.Color.White;
+      this.GotoMouse.Location = new System.Drawing.Point(230, 116);
+      this.GotoMouse.Margin = new System.Windows.Forms.Padding(2);
+      this.GotoMouse.Name = "GotoMouse";
+      this.GotoMouse.Size = new System.Drawing.Size(75, 29);
+      this.GotoMouse.TabIndex = 23;
+      this.GotoMouse.Text = "Goto Cursor";
+      this.TheToolTip.SetToolTip(this.GotoMouse, "Go to specified position in text box");
+      this.GotoMouse.UseVisualStyleBackColor = false;
+      this.GotoMouse.Click += new System.EventHandler(this.GotoMouse_Click);
+      // 
       // JoggingExpander
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScroll = true;
+      this.MinimumSize = new System.Drawing.Size(214, 0);
       this.Name = "JoggingExpander";
-      this.Size = new System.Drawing.Size(380, 200);
+      this.Size = new System.Drawing.Size(318, 176);
+      this.Controls.SetChildIndex(this.ContentPanel, 0);
+      this.Controls.SetChildIndex(this.HeaderLabel, 0);
       this.ContentPanel.ResumeLayout(false);
       this.ContentPanel.PerformLayout();
+      this.storedPosCtxMenu.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -366,7 +530,6 @@
     private GRBLButton X_Min;
     private System.Windows.Forms.RadioButton Millimeters;
     private System.Windows.Forms.RadioButton Inches;
-    private System.Windows.Forms.Label label1;
     private System.Windows.Forms.TextBox StepZ;
     private System.Windows.Forms.TextBox StepXY;
     private GRBLButton ResetZButton;
@@ -375,5 +538,14 @@
     private GRBLButton OriginButton;
     private GRBLButton HomeButton;
     private GRBLButton WCSButton;
+    private GRBLButton MouseJog;
+    private GRBLButton ZProbeButton;
+    private GRBLButton PosA;
+    private System.Windows.Forms.ContextMenuStrip storedPosCtxMenu;
+    private System.Windows.Forms.ToolStripMenuItem storeCurrentPositionToolStripMenuItem;
+    private GRBLButton PosB;
+    private System.Windows.Forms.TextBox GotoText;
+    private GRBLButton Goto;
+    private GRBLButton GotoMouse;
   }
 }

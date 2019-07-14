@@ -55,7 +55,7 @@
       this.ContentPanel.Controls.Add(this.BrowseButton);
       this.ContentPanel.Controls.Add(this.FileName);
       this.ContentPanel.Controls.Add(this.label1);
-      this.ContentPanel.Size = new System.Drawing.Size(363, 96);
+      this.ContentPanel.Size = new System.Drawing.Size(272, 78);
       // 
       // HeaderLabel
       // 
@@ -64,9 +64,10 @@
       // label1
       // 
       this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(12, 16);
+      this.label1.Location = new System.Drawing.Point(9, 13);
+      this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(34, 17);
+      this.label1.Size = new System.Drawing.Size(26, 13);
       this.label1.TabIndex = 0;
       this.label1.Text = "File:";
       // 
@@ -74,9 +75,10 @@
       // 
       this.FileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-      this.FileName.Location = new System.Drawing.Point(52, 14);
+      this.FileName.Location = new System.Drawing.Point(39, 11);
+      this.FileName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.FileName.Name = "FileName";
-      this.FileName.Size = new System.Drawing.Size(271, 22);
+      this.FileName.Size = new System.Drawing.Size(204, 20);
       this.FileName.TabIndex = 1;
       this.TheToolTip.SetToolTip(this.FileName, "Enter the filename containing GCODE to send to your GRBL Machine");
       this.FileName.TextChanged += new System.EventHandler(this.FileName_TextChanged);
@@ -87,9 +89,10 @@
       this.BrowseButton.BackgroundImage = global::GRBLMachine.Properties.Resources.folder;
       this.BrowseButton.BackgroundImageDisabled = global::GRBLMachine.Properties.Resources.folder_gray;
       this.BrowseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.BrowseButton.Location = new System.Drawing.Point(329, 13);
+      this.BrowseButton.Location = new System.Drawing.Point(247, 11);
+      this.BrowseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.BrowseButton.Name = "BrowseButton";
-      this.BrowseButton.Size = new System.Drawing.Size(22, 22);
+      this.BrowseButton.Size = new System.Drawing.Size(16, 18);
       this.BrowseButton.TabIndex = 2;
       this.TheToolTip.SetToolTip(this.BrowseButton, "Browse your computer for GCODE files");
       this.BrowseButton.UseVisualStyleBackColor = true;
@@ -104,9 +107,10 @@
       this.PlayButton.Enabled = false;
       this.PlayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.PlayButton.ForeColor = System.Drawing.Color.Yellow;
-      this.PlayButton.Location = new System.Drawing.Point(52, 42);
+      this.PlayButton.Location = new System.Drawing.Point(39, 34);
+      this.PlayButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.PlayButton.Name = "PlayButton";
-      this.PlayButton.Size = new System.Drawing.Size(36, 36);
+      this.PlayButton.Size = new System.Drawing.Size(27, 29);
       this.PlayButton.TabIndex = 3;
       this.TheToolTip.SetToolTip(this.PlayButton, "Send the GCODE job to your GRBL machine");
       this.PlayButton.UseVisualStyleBackColor = false;
@@ -122,9 +126,10 @@
       this.PauseButton.Enabled = false;
       this.PauseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.PauseButton.ForeColor = System.Drawing.Color.Yellow;
-      this.PauseButton.Location = new System.Drawing.Point(94, 42);
+      this.PauseButton.Location = new System.Drawing.Point(70, 34);
+      this.PauseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.PauseButton.Name = "PauseButton";
-      this.PauseButton.Size = new System.Drawing.Size(36, 36);
+      this.PauseButton.Size = new System.Drawing.Size(27, 29);
       this.PauseButton.TabIndex = 4;
       this.PauseButton.ToggleButton = true;
       this.TheToolTip.SetToolTip(this.PauseButton, "Pause/Resume the current CGODE job");
@@ -140,9 +145,10 @@
       this.StopButton.Enabled = false;
       this.StopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.StopButton.ForeColor = System.Drawing.Color.Yellow;
-      this.StopButton.Location = new System.Drawing.Point(136, 42);
+      this.StopButton.Location = new System.Drawing.Point(102, 34);
+      this.StopButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.StopButton.Name = "StopButton";
-      this.StopButton.Size = new System.Drawing.Size(36, 36);
+      this.StopButton.Size = new System.Drawing.Size(27, 29);
       this.StopButton.TabIndex = 5;
       this.TheToolTip.SetToolTip(this.StopButton, "Stop and Cancel the current CGODE job");
       this.StopButton.UseVisualStyleBackColor = false;
@@ -152,9 +158,10 @@
       // 
       this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(216, 42);
+      this.label2.Location = new System.Drawing.Point(162, 34);
+      this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(77, 17);
+      this.label2.Size = new System.Drawing.Size(58, 13);
       this.label2.TabIndex = 6;
       this.label2.Text = "Lines total:";
       this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -163,9 +170,10 @@
       // 
       this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.label3.AutoSize = true;
-      this.label3.Location = new System.Drawing.Point(216, 62);
+      this.label3.Location = new System.Drawing.Point(162, 50);
+      this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(77, 17);
+      this.label3.Size = new System.Drawing.Size(58, 13);
       this.label3.TabIndex = 7;
       this.label3.Text = "Lines sent:";
       this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -173,9 +181,10 @@
       // LinesTotal
       // 
       this.LinesTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.LinesTotal.Location = new System.Drawing.Point(288, 42);
+      this.LinesTotal.Location = new System.Drawing.Point(216, 34);
+      this.LinesTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.LinesTotal.Name = "LinesTotal";
-      this.LinesTotal.Size = new System.Drawing.Size(68, 23);
+      this.LinesTotal.Size = new System.Drawing.Size(51, 19);
       this.LinesTotal.TabIndex = 8;
       this.LinesTotal.Text = "0";
       this.LinesTotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -183,9 +192,10 @@
       // LinesSent
       // 
       this.LinesSent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.LinesSent.Location = new System.Drawing.Point(293, 62);
+      this.LinesSent.Location = new System.Drawing.Point(220, 50);
+      this.LinesSent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.LinesSent.Name = "LinesSent";
-      this.LinesSent.Size = new System.Drawing.Size(63, 23);
+      this.LinesSent.Size = new System.Drawing.Size(47, 19);
       this.LinesSent.TabIndex = 9;
       this.LinesSent.Text = "0";
       this.LinesSent.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -198,9 +208,10 @@
       this.ToolChangeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.ToolChangeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.ToolChangeButton.ForeColor = System.Drawing.Color.Yellow;
-      this.ToolChangeButton.Location = new System.Drawing.Point(178, 42);
+      this.ToolChangeButton.Location = new System.Drawing.Point(134, 34);
+      this.ToolChangeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.ToolChangeButton.Name = "ToolChangeButton";
-      this.ToolChangeButton.Size = new System.Drawing.Size(36, 36);
+      this.ToolChangeButton.Size = new System.Drawing.Size(27, 29);
       this.ToolChangeButton.TabIndex = 10;
       this.TheToolTip.SetToolTip(this.ToolChangeButton, "Start a Tool Change");
       this.ToolChangeButton.UseVisualStyleBackColor = false;
@@ -208,9 +219,10 @@
       // 
       // ProductionExpander
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+      this.MinimumSize = new System.Drawing.Size(214, 0);
       this.Name = "ProductionExpander";
-      this.Size = new System.Drawing.Size(380, 132);
+      this.Size = new System.Drawing.Size(285, 107);
       this.ContentPanel.ResumeLayout(false);
       this.ContentPanel.PerformLayout();
       this.ResumeLayout(false);

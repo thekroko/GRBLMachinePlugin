@@ -167,14 +167,14 @@ namespace GRBLMachine.UI
       Y_AxisContextMenu   .Enabled   = true;
       FeedUnitsContextMenu.Enabled   = true;
 
-      ContentPanel        .ForeColor = Color.Black;
+      ContentPanel        .ForeColor = Color.Chartreuse;
     }
 
     private void ConnectionExpander_Disconnected()
     {
       _connected     = false;
 
-      ContentPanel        .ForeColor = Color.Olive;
+      ContentPanel        .ForeColor = Color.Yellow;
 
       X_AxisContextMenu   .Enabled   = false;
       Z_AxisContextMenu   .Enabled   = false;
@@ -313,12 +313,12 @@ namespace GRBLMachine.UI
       Thread            .Sleep(250);
       ConnectionExpander.WriteCOMPort("$X");
 
-      if (MessageBox.Show("GRBL has been reset,\r\nperforming a Homing Cycle and/or\r\nreset your WCS origin is highly recommended !\r\n\r\nMove to WCS origin (0.0.0) now ?","GRBLMachine", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+      /**if (MessageBox.Show("GRBL has been reset,\r\nperforming a Homing Cycle and/or\r\nreset your WCS origin is highly recommended !\r\n\r\nMove to WCS origin (0.0.0) now ?","GRBLMachine", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
       {
         ConnectionExpander.WriteCOMPort("G91 G21 G0 Z" + GRBLMachinePlugin.Props.JogZPullup.ToString(new CultureInfo("en-US")));
         ConnectionExpander.WriteCOMPort("G90 G0 X0 Y0");
         ConnectionExpander.WriteCOMPort("G90 G0 Z0");
-      }
+      }*/
     }
 
     private void WPos_Click(object sender, EventArgs e)
@@ -385,9 +385,9 @@ namespace GRBLMachine.UI
     private void BlinkTimer_Tick(object sender, EventArgs e)
     {
       if (_lastState == GRBLMachinePlugin.MachineState.Alarm || _lastState == GRBLMachinePlugin.MachineState.Hold)
-        StatusLabel.ForeColor = StatusLabel.ForeColor == Color.Black ? Color.Olive : Color.Black;
-      else if (StatusLabel.ForeColor != Color.Black)
-        StatusLabel.ForeColor = Color.Black;
+        StatusLabel.ForeColor = StatusLabel.ForeColor == Color.Black ? Color.Red : Color.Black;
+      else if (StatusLabel.ForeColor != Color.Chartreuse)
+        StatusLabel.ForeColor = Color.Chartreuse;
     }
   }
 }

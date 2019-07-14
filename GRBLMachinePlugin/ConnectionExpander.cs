@@ -119,6 +119,9 @@ namespace GRBLMachine.UI
 
 #region Publics
 
+    /// <summary>
+    /// True if all pending commands have been executed (i.e. no move & similar is pending)
+    /// </summary>
     public static bool IsCOMPortIdle
     {
       get
@@ -147,6 +150,10 @@ namespace GRBLMachine.UI
       {
         return false;
       }
+    }
+
+    public static bool WriteCOMPortFmt(string format, params object[] args) {
+      return WriteCOMPort(string.Format(CultureInfo.InvariantCulture, format, args));
     }
 
     public static bool WriteCOMPort(string data)
@@ -414,7 +421,7 @@ namespace GRBLMachine.UI
           charmessage[message.IndexOf(",MPos:")] = '|';
           charmessage[message.IndexOf(",WPos:")] = '|';
 
-          message = new string(charmessage);
+          message = new string(charmessage); // ==> "<Idle|MPos:0.000,0.000,0.000|WPos:0.000,0.000,0.000>"
         }
 
         string[] report = message.Split('<','|','>');
@@ -422,11 +429,13 @@ namespace GRBLMachine.UI
 
         if (report.Length > 2)
         {
+          // report[0] = ""
+          // report[1] = Idle
           string[] states = report[1].Split(':');
 
           GRBLMachinePlugin.Stat((GRBLMachinePlugin.MachineState)Enum.Parse(typeof(GRBLMachinePlugin.MachineState),states[0],true), states.Length > 1 ? int.Parse(states[1]) : -1);
 
-          if (report.Length > 3)
+          if (report.Length > 3) // report[2] = MPos:0.000,0.000,0.00
           {
             string[] pos = report[2].Split(':',',');
 
@@ -450,7 +459,7 @@ namespace GRBLMachine.UI
 
             GRBLMachinePlugin.Pos(type,x,y,z);
 
-            if (report.Length > 4)
+            if (report.Length > 4) // report[3] = WPos:0.000,0.000,0.000
             {
               string[] speeds = report[3].Split(':',',');
 
@@ -694,7 +703,7 @@ namespace GRBLMachine.UI
     {
       GRBLMachinePlugin.Props.COMPort = COMPort.SelectedItem as string;
 
-      if (CamBamUI.MainUI.ObjectProperties.SelectedObject == GRBLMachinePlugin.Props)
+      if (CamBamUI.MainUI != null && CamBamUI.MainUI.ObjectProperties.SelectedObject == GRBLMachinePlugin.Props)
         CamBamUI.MainUI.ObjectProperties.Refresh();
     }
 
@@ -702,7 +711,7 @@ namespace GRBLMachine.UI
     {
       GRBLMachinePlugin.Props.Baudrate = int.Parse(Baudrate.SelectedItem as string);
 
-      if (CamBamUI.MainUI.ObjectProperties.SelectedObject == GRBLMachinePlugin.Props)
+      if (CamBamUI.MainUI != null && CamBamUI.MainUI.ObjectProperties.SelectedObject == GRBLMachinePlugin.Props)
         CamBamUI.MainUI.ObjectProperties.Refresh();
     }
 
@@ -710,7 +719,7 @@ namespace GRBLMachine.UI
     {
       GRBLMachinePlugin.Props.AutoConnect = AutoConnect.Checked;
 
-      if (CamBamUI.MainUI.ObjectProperties.SelectedObject == GRBLMachinePlugin.Props)
+      if (CamBamUI.MainUI != null && CamBamUI.MainUI.ObjectProperties.SelectedObject == GRBLMachinePlugin.Props)
         CamBamUI.MainUI.ObjectProperties.Refresh();
     }
 

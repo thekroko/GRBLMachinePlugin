@@ -65,67 +65,72 @@
       this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.TableLayout.Size = new System.Drawing.Size(397, 1190);
+      this.TableLayout.Size = new System.Drawing.Size(397, 1010);
       this.TableLayout.TabIndex = 2;
       // 
       // DisplayExpander
       // 
-      this.DisplayExpander.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.DisplayExpander.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.DisplayExpander.AutoScroll = true;
       this.DisplayExpander.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.DisplayExpander.Location = new System.Drawing.Point(3, 3);
+      this.DisplayExpander.Location = new System.Drawing.Point(2, 2);
+      this.DisplayExpander.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.DisplayExpander.MinimumSize = new System.Drawing.Size(380, 0);
       this.DisplayExpander.Name = "DisplayExpander";
-      this.DisplayExpander.Size = new System.Drawing.Size(391, 209);
+      this.DisplayExpander.Size = new System.Drawing.Size(393, 176);
       this.DisplayExpander.TabIndex = 3;
       // 
       // ProductionExpander
       // 
-      this.ProductionExpander.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.ProductionExpander.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.ProductionExpander.BackColor = System.Drawing.SystemColors.ControlDark;
       this.ProductionExpander.Expanded = false;
-      this.ProductionExpander.Location = new System.Drawing.Point(3, 218);
+      this.ProductionExpander.Location = new System.Drawing.Point(2, 182);
+      this.ProductionExpander.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.ProductionExpander.MinimumSize = new System.Drawing.Size(380, 0);
       this.ProductionExpander.Name = "ProductionExpander";
-      this.ProductionExpander.Size = new System.Drawing.Size(391, 122);
+      this.ProductionExpander.Size = new System.Drawing.Size(393, 98);
       this.ProductionExpander.TabIndex = 6;
       // 
       // JoggingExpander
       // 
-      this.JoggingExpander.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.JoggingExpander.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.JoggingExpander.AutoScroll = true;
       this.JoggingExpander.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.JoggingExpander.Location = new System.Drawing.Point(3, 346);
+      this.JoggingExpander.Location = new System.Drawing.Point(2, 284);
+      this.JoggingExpander.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.JoggingExpander.MinimumSize = new System.Drawing.Size(380, 0);
       this.JoggingExpander.Name = "JoggingExpander";
-      this.JoggingExpander.Size = new System.Drawing.Size(391, 186);
+      this.JoggingExpander.Size = new System.Drawing.Size(393, 160);
       this.JoggingExpander.TabIndex = 2;
       // 
       // ConnectionExpander
       // 
-      this.ConnectionExpander.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.ConnectionExpander.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.ConnectionExpander.AutoScroll = true;
       this.ConnectionExpander.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.ConnectionExpander.Location = new System.Drawing.Point(3, 813);
+      this.ConnectionExpander.Location = new System.Drawing.Point(2, 670);
+      this.ConnectionExpander.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.ConnectionExpander.MinimumSize = new System.Drawing.Size(380, 0);
       this.ConnectionExpander.Name = "ConnectionExpander";
-      this.ConnectionExpander.Size = new System.Drawing.Size(391, 185);
+      this.ConnectionExpander.Size = new System.Drawing.Size(393, 151);
       this.ConnectionExpander.TabIndex = 4;
       // 
       // ConsoleExpander
       // 
-      this.ConsoleExpander.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.ConsoleExpander.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.ConsoleExpander.BackColor = System.Drawing.SystemColors.ControlDark;
       this.ConsoleExpander.Expanded = false;
-      this.ConsoleExpander.Location = new System.Drawing.Point(3, 538);
+      this.ConsoleExpander.Location = new System.Drawing.Point(2, 448);
+      this.ConsoleExpander.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.ConsoleExpander.MinimumSize = new System.Drawing.Size(380, 0);
       this.ConsoleExpander.Name = "ConsoleExpander";
-      this.ConsoleExpander.Size = new System.Drawing.Size(391, 269);
+      this.ConsoleExpander.Size = new System.Drawing.Size(393, 218);
       this.ConsoleExpander.TabIndex = 5;
       // 
       // AboutExpander
@@ -134,13 +139,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
       this.AboutExpander.BackColor = System.Drawing.SystemColors.ControlDark;
       this.AboutExpander.Expanded = false;
-      this.AboutExpander.Location = new System.Drawing.Point(3, 1004);
+      this.AboutExpander.Location = new System.Drawing.Point(2, 825);
+      this.AboutExpander.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.AboutExpander.MinimumSize = new System.Drawing.Size(380, 0);
       this.AboutExpander.Name = "AboutExpander";
-      this.AboutExpander.Size = new System.Drawing.Size(391, 183);
+      this.AboutExpander.Size = new System.Drawing.Size(393, 183);
       this.AboutExpander.TabIndex = 7;
       // 
-      // GRBLPage
+      // GRBLMachinePage
       // 
       this.AutoScroll = true;
       this.AutoSize = true;
@@ -149,8 +155,8 @@
       this.DoubleBuffered = true;
       this.Margin = new System.Windows.Forms.Padding(0);
       this.MinimumSize = new System.Drawing.Size(400, 0);
-      this.Name = "GRBLPage";
-      this.Size = new System.Drawing.Size(400, 1190);
+      this.Name = "GRBLMachinePage";
+      this.Size = new System.Drawing.Size(400, 1010);
       this.TableLayout.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();

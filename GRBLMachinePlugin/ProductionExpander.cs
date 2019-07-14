@@ -106,7 +106,7 @@ namespace GRBLMachine.UI
     {
       base.OnLoad(e);
 
-      if (!DesignMode)
+      if (!DesignMode && ThisApplication.TopWindow != null)
         ThisApplication.TopWindow.FormClosing += TopWindow_FormClosing;
     }
 

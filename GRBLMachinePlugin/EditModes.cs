@@ -27,6 +27,8 @@ namespace GRBLMachine
     private double         _trgtY;
     private double         _trgtZ;
 
+    public static Point3F CurrentLocation = new Point3F(0,0,0);
+
     // where are we now
 
     private double         _currX;
@@ -405,6 +407,8 @@ namespace GRBLMachine
       _currZ = _trgtZ;
       _trgtZ = _posiZ;
       _stepZ = (_trgtZ - _currZ) == 0 ? 0 : ((_trgtZ - _currZ) > 0 ? step : -step);
+
+      CurrentLocation = new Point3F(_currX, _currY, _currZ);
 
       // scale the steps based upon the largest delta, from which GRBL is reporting the current feed.
       // this smoothens out jaggy/jerky diagonal moves

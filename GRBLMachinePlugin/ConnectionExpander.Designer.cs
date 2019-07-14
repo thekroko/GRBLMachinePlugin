@@ -54,7 +54,7 @@
       this.ContentPanel.Controls.Add(this.label2);
       this.ContentPanel.Controls.Add(this.label1);
       this.ContentPanel.Controls.Add(this.COMPort);
-      this.ContentPanel.Size = new System.Drawing.Size(363, 159);
+      this.ContentPanel.Size = new System.Drawing.Size(272, 129);
       // 
       // HeaderLabel
       // 
@@ -64,9 +64,10 @@
       // 
       this.COMPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.COMPort.FormattingEnabled = true;
-      this.COMPort.Location = new System.Drawing.Point(104, 13);
+      this.COMPort.Location = new System.Drawing.Point(78, 11);
+      this.COMPort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.COMPort.Name = "COMPort";
-      this.COMPort.Size = new System.Drawing.Size(121, 24);
+      this.COMPort.Size = new System.Drawing.Size(92, 21);
       this.COMPort.TabIndex = 1;
       this.TheToolTip.SetToolTip(this.COMPort, "Select the COM port to which your GRBL machine is connected");
       this.COMPort.SelectionChangeCommitted += new System.EventHandler(this.COMPort_SelectionChangeCommitted);
@@ -74,18 +75,20 @@
       // label1
       // 
       this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(12, 16);
+      this.label1.Location = new System.Drawing.Point(9, 13);
+      this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(38, 17);
+      this.label1.Size = new System.Drawing.Size(29, 13);
       this.label1.TabIndex = 1;
       this.label1.Text = "Port:";
       // 
       // label2
       // 
       this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(12, 48);
+      this.label2.Location = new System.Drawing.Point(9, 39);
+      this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(70, 17);
+      this.label2.Size = new System.Drawing.Size(53, 13);
       this.label2.TabIndex = 2;
       this.label2.Text = "Baudrate:";
       // 
@@ -99,9 +102,10 @@
             "38400",
             "57600",
             "115200"});
-      this.Baudrate.Location = new System.Drawing.Point(104, 45);
+      this.Baudrate.Location = new System.Drawing.Point(78, 37);
+      this.Baudrate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.Baudrate.Name = "Baudrate";
-      this.Baudrate.Size = new System.Drawing.Size(121, 24);
+      this.Baudrate.Size = new System.Drawing.Size(92, 21);
       this.Baudrate.TabIndex = 2;
       this.TheToolTip.SetToolTip(this.Baudrate, "Select the baudrate at which your GRBL machine is communicating");
       this.Baudrate.SelectionChangeCommitted += new System.EventHandler(this.Baudrate_SelectionChangeCommitted);
@@ -111,9 +115,10 @@
       this.RefreshButton.BackgroundImage = global::GRBLMachine.Properties.Resources.refresh;
       this.RefreshButton.BackgroundImageDisabled = global::GRBLMachine.Properties.Resources.refresh_gray;
       this.RefreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-      this.RefreshButton.Location = new System.Drawing.Point(231, 12);
+      this.RefreshButton.Location = new System.Drawing.Point(173, 10);
+      this.RefreshButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.RefreshButton.Name = "RefreshButton";
-      this.RefreshButton.Size = new System.Drawing.Size(24, 24);
+      this.RefreshButton.Size = new System.Drawing.Size(18, 20);
       this.RefreshButton.TabIndex = 0;
       this.RefreshButton.TabStop = false;
       this.TheToolTip.SetToolTip(this.RefreshButton, "Refresh the COM port list");
@@ -123,10 +128,11 @@
       // AutoConnect
       // 
       this.AutoConnect.AutoSize = true;
-      this.AutoConnect.Location = new System.Drawing.Point(104, 75);
+      this.AutoConnect.Location = new System.Drawing.Point(78, 61);
+      this.AutoConnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.AutoConnect.Name = "AutoConnect";
       this.AutoConnect.RightToLeft = System.Windows.Forms.RightToLeft.No;
-      this.AutoConnect.Size = new System.Drawing.Size(113, 21);
+      this.AutoConnect.Size = new System.Drawing.Size(90, 17);
       this.AutoConnect.TabIndex = 3;
       this.AutoConnect.Text = "Auto connect";
       this.TheToolTip.SetToolTip(this.AutoConnect, "Connect to your GRBL machine when CamBam is started");
@@ -139,11 +145,12 @@
       this.ConnectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ConnectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.ConnectButton.ForeColor = System.Drawing.Color.Yellow;
-      this.ConnectButton.Location = new System.Drawing.Point(104, 102);
+      this.ConnectButton.Location = new System.Drawing.Point(78, 83);
+      this.ConnectButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.ConnectButton.Name = "ConnectButton";
-      this.ConnectButton.Size = new System.Drawing.Size(121, 36);
+      this.ConnectButton.Size = new System.Drawing.Size(91, 29);
       this.ConnectButton.TabIndex = 4;
-      this.ConnectButton.Text = "CONNECT !";
+      this.ConnectButton.Text = "Connect";
       this.ConnectButton.UseVisualStyleBackColor = false;
       this.ConnectButton.Click += new System.EventHandler(this.ConnectButton_Click);
       // 
@@ -160,9 +167,10 @@
       // label3
       // 
       this.label3.AutoSize = true;
-      this.label3.Location = new System.Drawing.Point(231, 112);
+      this.label3.Location = new System.Drawing.Point(173, 91);
+      this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(89, 17);
+      this.label3.Size = new System.Drawing.Size(66, 13);
       this.label3.TabIndex = 5;
       this.label3.Text = "Grbl version:";
       // 
@@ -170,18 +178,20 @@
       // 
       this.VersionLabel.AutoSize = true;
       this.VersionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.VersionLabel.Location = new System.Drawing.Point(316, 112);
+      this.VersionLabel.Location = new System.Drawing.Point(237, 91);
+      this.VersionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.VersionLabel.Name = "VersionLabel";
-      this.VersionLabel.Size = new System.Drawing.Size(25, 17);
+      this.VersionLabel.Size = new System.Drawing.Size(19, 13);
       this.VersionLabel.TabIndex = 6;
       this.VersionLabel.Text = "-.-";
       // 
       // ConnectionExpander
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScroll = true;
+      this.MinimumSize = new System.Drawing.Size(214, 0);
       this.Name = "ConnectionExpander";
-      this.Size = new System.Drawing.Size(380, 195);
+      this.Size = new System.Drawing.Size(285, 158);
       this.ContentPanel.ResumeLayout(false);
       this.ContentPanel.PerformLayout();
       this.ResumeLayout(false);
