@@ -3,8 +3,10 @@ using CamBam.CAD;
 using CamBam.Geom;
 using CamBam.UI;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace GRBLMachine.UI
@@ -144,6 +146,11 @@ namespace GRBLMachine.UI
       ConnectionExpander.WriteCOMPort("G90 G0 Z0");
     }
 
+    private void OriginXYButton_Click(object sender, EventArgs e) {
+      ConnectionExpander.WriteCOMPort("G91 G21 G0 Z" + GRBLMachinePlugin.Props.JogZPullup.ToString(EN_US));
+      ConnectionExpander.WriteCOMPort("G90 G0 X0 Y0");
+    }
+
     private void WCSButton_Click(object sender, EventArgs e) {
       ConnectionExpander.WriteCOMPort("G10 P0 L20 X0 Y0 Z0");
     }
@@ -175,7 +182,7 @@ namespace GRBLMachine.UI
     bool _mouseIsJogging = false;
     Point _mouseJogStart;
     Point _mouseJogDelta;
-    Timer _jogTimer = new System.Windows.Forms.Timer() { Interval = 200 };
+    System.Windows.Forms.Timer _jogTimer = new System.Windows.Forms.Timer() { Interval = 200 };
 
     private void MouseJog_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e) {
       Console.WriteLine($"Jogger Mouse Down {e.Location}");
@@ -212,7 +219,7 @@ namespace GRBLMachine.UI
       }*/
 
       const float px2mm = 0.5f;
-      const float maxMmPerMove = 5;
+      const float maxMmPerMove = 10;
       const float nominalFeed = 1000;
 
       float relX = Math.Abs(_mouseJogDelta.X) * px2mm;
@@ -266,11 +273,32 @@ namespace GRBLMachine.UI
     }
 
     private void ZProbeButton_Click(object sender, EventArgs e) {
-      // Perform Z-Probe
-      ConnectionExpander.WriteCOMPort("G38.2 F200 Z0");
+      OriginButton.Enabled = false; // Will run your router drill into the workpiece ...
+      ThreadedGCodeExecute(
+        () => ConnectionExpander.WriteCOMPort("G43.1 Z0"), // Remove any existing tool offset
+        () => ConnectionExpander.WriteCOMPort("G10 L2 P0 Z0"), // Reset WCS to absolute machine 0 (Z-Probe target Z is based on WCS origin)
+        () => ConnectionExpander.WriteCOMPortFmt("G38.2 F200 Z{0}", GRBLMachinePlugin.Props.ZProbeToolDropTargetZ), // Perform Z-Probe
+        () => ConnectionExpander.WriteCOMPort("G10 L20 P0 Z0"), // Set WCS Z to probe Z
+        () => ConnectionExpander.WriteCOMPortFmt("G43.1 Z{0}", GRBLMachinePlugin.Props.ZProbeToolOffset) // Set tool offset again
+      );
+    }
 
-      // Set tool offset
-      ConnectionExpander.WriteCOMPortFmt("G43.1 Z{0}", GRBLMachinePlugin.Props.ZProbeToolOffset);
+    /// <summary>
+    ///  Threaded execute of GCode which waits for the machine to become idle, and which
+    ///  aborts on ALARM conditions.
+    ///  Do not use for critical/low latency applications (uses fixed wait)
+    /// </summary>
+    private void ThreadedGCodeExecute(params Action[] actions) {
+      new Thread(() => {
+        // Remove any existing tool offset
+        foreach (Action gcode in actions) {
+          while (!ConnectionExpander.IsCOMPortIdle)
+            Thread.Sleep(100);
+          if (GRBLMachinePlugin.CurrentMachineState == GRBLMachinePlugin.MachineState.Alarm)
+            return; // abort
+          gcode();
+        }
+      }) { IsBackground = true }.Start();
     }
 
     private void PosA_Click(object sender, EventArgs e) {
@@ -307,10 +335,22 @@ namespace GRBLMachine.UI
       editMode.OnReturnOK += (o,ea) => {
         Point3F moveDelta = editMode.MoveDestination - editMode.MoveSource;
         ThisApplication.AddLogMessage("MoveDelta = " + moveDelta);
-        ConnectionExpander.WriteCOMPortFmt("$J=G91 G21 X{0:+#;-#;+0} Y{1:+#;-#;+0}", moveDelta.X, moveDelta.Y);
+        ConnectionExpander.WriteCOMPortFmt("$J=G91 G21 X{0:+#;-#;+0} Y{1:+#;-#;+0} F4000", moveDelta.X, moveDelta.Y);
       };
       CamBamUI.MainUI.ActiveView.SetEditMode((EditMode)editMode);
       CamBamUI.MainUI.ActiveView.RepaintEditMode();
+    }
+
+    private void SwitchTo1_Click(object sender, EventArgs e) {
+      StepXY.Text = StepZ.Text = "1";
+    }
+
+    private void SwitchTo5_Click(object sender, EventArgs e) {
+      StepXY.Text = StepZ.Text = "5";
+    }
+
+    private void SwitchTo10_Click(object sender, EventArgs e) {
+      StepXY.Text = StepZ.Text = "10";
     }
   }
 }

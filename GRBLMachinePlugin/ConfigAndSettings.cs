@@ -170,7 +170,8 @@ namespace GRBLMachine
       JogStepZ                 = 5;
       JogStepUnit              = InchMM.Millimeters;
       JogZPullup               = 1;
-      ZProbeToolOffset         = 0;
+      ZProbeToolOffset         = -3.175;
+      ZProbeToolDropTargetZ           = -70;
 
       ToolChangeProcess        = IgnoreProcessPassOn.Process;
       ToolChangeUnits          = InchMM.Millimeters;
@@ -388,7 +389,11 @@ namespace GRBLMachine
     [CBAdvancedValue]
     public double ZProbeToolOffset { get; set; }
 
-
+    [Category("[Jogging]")]
+    [DisplayName("Z-Probe Tool Drop")]
+    [Description("Maximum probing distance")]
+    [CBAdvancedValue]
+    public double ZProbeToolDropTargetZ { get; set; }
 
     [Category("[ToolChange]")]
     [DisplayName("GCODE M6 (Tool Change)")]

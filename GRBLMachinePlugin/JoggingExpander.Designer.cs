@@ -55,12 +55,20 @@
       this.Goto = new GRBLMachine.UI.GRBLButton();
       this.GotoText = new System.Windows.Forms.TextBox();
       this.GotoMouse = new GRBLMachine.UI.GRBLButton();
+      this.OriginXYButton = new GRBLMachine.UI.GRBLButton();
+      this.SwitchTo1 = new System.Windows.Forms.Button();
+      this.SwitchTo5 = new System.Windows.Forms.Button();
+      this.SwitchTo10 = new System.Windows.Forms.Button();
       this.ContentPanel.SuspendLayout();
       this.storedPosCtxMenu.SuspendLayout();
       this.SuspendLayout();
       // 
       // ContentPanel
       // 
+      this.ContentPanel.Controls.Add(this.SwitchTo10);
+      this.ContentPanel.Controls.Add(this.SwitchTo5);
+      this.ContentPanel.Controls.Add(this.SwitchTo1);
+      this.ContentPanel.Controls.Add(this.OriginXYButton);
       this.ContentPanel.Controls.Add(this.GotoMouse);
       this.ContentPanel.Controls.Add(this.GotoText);
       this.ContentPanel.Controls.Add(this.Goto);
@@ -237,7 +245,7 @@
       // 
       this.Inches.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.Inches.AutoSize = true;
-      this.Inches.Location = new System.Drawing.Point(119, 52);
+      this.Inches.Location = new System.Drawing.Point(114, 70);
       this.Inches.Margin = new System.Windows.Forms.Padding(2);
       this.Inches.Name = "Inches";
       this.Inches.Size = new System.Drawing.Size(45, 17);
@@ -251,7 +259,7 @@
       this.Millimeters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.Millimeters.AutoSize = true;
       this.Millimeters.Checked = true;
-      this.Millimeters.Location = new System.Drawing.Point(119, 68);
+      this.Millimeters.Location = new System.Drawing.Point(114, 88);
       this.Millimeters.Margin = new System.Windows.Forms.Padding(2);
       this.Millimeters.Name = "Millimeters";
       this.Millimeters.Size = new System.Drawing.Size(41, 17);
@@ -323,7 +331,7 @@
       this.HomeButton.Enabled = false;
       this.HomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.HomeButton.ForeColor = System.Drawing.Color.Yellow;
-      this.HomeButton.Location = new System.Drawing.Point(9, 64);
+      this.HomeButton.Location = new System.Drawing.Point(109, 35);
       this.HomeButton.Margin = new System.Windows.Forms.Padding(2);
       this.HomeButton.Name = "HomeButton";
       this.HomeButton.Size = new System.Drawing.Size(46, 29);
@@ -340,7 +348,7 @@
       this.OriginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.OriginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.OriginButton.ForeColor = System.Drawing.Color.Yellow;
-      this.OriginButton.Location = new System.Drawing.Point(59, 64);
+      this.OriginButton.Location = new System.Drawing.Point(9, 64);
       this.OriginButton.Margin = new System.Windows.Forms.Padding(2);
       this.OriginButton.Name = "OriginButton";
       this.OriginButton.Size = new System.Drawing.Size(46, 29);
@@ -504,6 +512,54 @@
       this.GotoMouse.UseVisualStyleBackColor = false;
       this.GotoMouse.Click += new System.EventHandler(this.GotoMouse_Click);
       // 
+      // OriginXYButton
+      // 
+      this.OriginXYButton.BackColor = System.Drawing.SystemColors.ControlDark;
+      this.OriginXYButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OriginXYButton.BackgroundImage")));
+      this.OriginXYButton.BackgroundImageDisabled = global::GRBLMachine.Properties.Resources.media_stop_gray;
+      this.OriginXYButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.OriginXYButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.OriginXYButton.ForeColor = System.Drawing.Color.Yellow;
+      this.OriginXYButton.Location = new System.Drawing.Point(58, 64);
+      this.OriginXYButton.Margin = new System.Windows.Forms.Padding(2);
+      this.OriginXYButton.Name = "OriginXYButton";
+      this.OriginXYButton.Size = new System.Drawing.Size(46, 29);
+      this.OriginXYButton.TabIndex = 24;
+      this.OriginXYButton.Text = "0,0";
+      this.TheToolTip.SetToolTip(this.OriginXYButton, "Move to Origin");
+      this.OriginXYButton.UseVisualStyleBackColor = false;
+      this.OriginXYButton.Click += new System.EventHandler(this.OriginXYButton_Click);
+      // 
+      // SwitchTo1
+      // 
+      this.SwitchTo1.Location = new System.Drawing.Point(166, 95);
+      this.SwitchTo1.Name = "SwitchTo1";
+      this.SwitchTo1.Size = new System.Drawing.Size(27, 20);
+      this.SwitchTo1.TabIndex = 25;
+      this.SwitchTo1.Text = "1";
+      this.SwitchTo1.UseVisualStyleBackColor = true;
+      this.SwitchTo1.Click += new System.EventHandler(this.SwitchTo1_Click);
+      // 
+      // SwitchTo5
+      // 
+      this.SwitchTo5.Location = new System.Drawing.Point(194, 95);
+      this.SwitchTo5.Name = "SwitchTo5";
+      this.SwitchTo5.Size = new System.Drawing.Size(27, 20);
+      this.SwitchTo5.TabIndex = 26;
+      this.SwitchTo5.Text = "5";
+      this.SwitchTo5.UseVisualStyleBackColor = true;
+      this.SwitchTo5.Click += new System.EventHandler(this.SwitchTo5_Click);
+      // 
+      // SwitchTo10
+      // 
+      this.SwitchTo10.Location = new System.Drawing.Point(221, 95);
+      this.SwitchTo10.Name = "SwitchTo10";
+      this.SwitchTo10.Size = new System.Drawing.Size(27, 20);
+      this.SwitchTo10.TabIndex = 27;
+      this.SwitchTo10.Text = "10";
+      this.SwitchTo10.UseVisualStyleBackColor = true;
+      this.SwitchTo10.Click += new System.EventHandler(this.SwitchTo10_Click);
+      // 
       // JoggingExpander
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -547,5 +603,9 @@
     private System.Windows.Forms.TextBox GotoText;
     private GRBLButton Goto;
     private GRBLButton GotoMouse;
+    private GRBLButton OriginXYButton;
+    private System.Windows.Forms.Button SwitchTo10;
+    private System.Windows.Forms.Button SwitchTo5;
+    private System.Windows.Forms.Button SwitchTo1;
   }
 }

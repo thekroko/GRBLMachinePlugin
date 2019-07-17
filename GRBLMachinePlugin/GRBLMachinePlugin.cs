@@ -15,7 +15,7 @@ namespace GRBLMachine
 
   public static class GRBLMachinePlugin
   {
-    public const  string       Version = "1.0.0a";
+    public const  string       Version = "1.0.0b";
 
     public static TabPage      Page;
     public static GRBLProps    Props   = new GRBLProps();
@@ -276,6 +276,7 @@ namespace GRBLMachine
         Props.JogStepXY                = props.JogStepXY;
         Props.JogStepZ                 = props.JogStepZ;
         Props.ZProbeToolOffset         = props.ZProbeToolOffset;
+        Props.ZProbeToolDropTargetZ    = props.ZProbeToolDropTargetZ;
 
         Props.ToolChangeProcess        = props.ToolChangeProcess;
         Props.ToolChangeX              = props.ToolChangeX;

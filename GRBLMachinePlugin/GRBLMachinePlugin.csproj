@@ -340,7 +340,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="changelog.txt" />
     <None Include="Resources\media_stop_yellow.bmp" />
     <None Include="Resources\media_stop_yllw.png" />
   </ItemGroup>

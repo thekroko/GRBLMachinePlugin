@@ -22,6 +22,7 @@ namespace GRBLMachine.UI
     private        string                   _jogLeadIn        = null;
 
     private string                         _lastOutfile       = "";
+    private string                         _activeCambamFile = "";
     private bool                           _connected;
     private LinkedList<string>             _fileData          = new LinkedList<string>();
     private Thread                         _writeThread;
@@ -556,59 +557,61 @@ namespace GRBLMachine.UI
       try
       {
         CamBamUI ui = CamBamUI.MainUI;
+        if (_activeCambamFile != ui.CADFileTree.CADFile.Name) {
+          _activeCambamFile = ui.CADFileTree.CADFile.Name;
+          _lastOutfile = null;
+          FileName.Text = "";
+        }
 
-        if (_writeThread == null)
+        // See if there is any outfile in the MachiningOptions
+        if      (!string.IsNullOrEmpty(ui.CADFileTree.CADFile.MachiningOptions.OutFile))
         {
-          // See if there is any outfile in the MachiningOptions
-          if      (!string.IsNullOrEmpty(ui.CADFileTree.CADFile.MachiningOptions.OutFile))
+          if (string.IsNullOrEmpty(FileName.Text) || !ui.CADFileTree.CADFile.MachiningOptions.OutFile.Equals(_lastOutfile))
           {
-            if (string.IsNullOrEmpty(FileName.Text) || !ui.CADFileTree.CADFile.MachiningOptions.OutFile.Equals(_lastOutfile))
-            {
-              FileName.Text = FileUtils.GetFullPath(ui.CADFileTree.CADFile,ui.CADFileTree.CADFile.MachiningOptions.OutFile);
-
-              ToolChange(ui.CADFileTree.CADFile.ActiveTool());
-
-              _lastOutfile = ui.CADFileTree.CADFile.MachiningOptions.OutFile;
-            }
+            FileName.Text = FileUtils.GetFullPath(ui.CADFileTree.CADFile,ui.CADFileTree.CADFile.MachiningOptions.OutFile);
+            ToolChange(ui.CADFileTree.CADFile.ActiveTool());
+            _lastOutfile = ui.CADFileTree.CADFile.MachiningOptions.OutFile;
           }
-          else
+        }
+        else
+        {
+          // try to find a MOPNCFile, which has it's outfile not in 'Outfile' :(
+          foreach (CAMPart part in ui.CADFileTree.CADFile.Parts)
           {
-            // try to find a MOPNCFile, which has it's outfile not in 'Outfile' :(
-            foreach (CAMPart part in ui.CADFileTree.CADFile.Parts)
-            {
-              if (part.MachineOps != null)
-              { 
-                bool found = false;
+            if (part.MachineOps != null)
+            { 
+              bool found = false;
 
-                foreach (MachineOp mop in part.MachineOps)
+              foreach (MachineOp mop in part.MachineOps)
+              {
+                if (mop is MOPNCFile)
                 {
-                  if (mop is MOPNCFile)
+                  MOPNCFile mopnc = mop as MOPNCFile;
+
+                  if (!string.IsNullOrEmpty(mopnc.SourceFile))
                   {
-                    MOPNCFile mopnc = mop as MOPNCFile;
-
-                    if (!string.IsNullOrEmpty(mopnc.SourceFile))
-                    {
-                      if (string.IsNullOrEmpty(FileName.Text) || !mopnc.SourceFile.Equals(_lastOutfile))
-                        FileName.Text = FileUtils.GetFullPath(ui.CADFileTree.CADFile,mopnc.SourceFile);
-
+                    if (string.IsNullOrEmpty(FileName.Text) || !mopnc.SourceFile.Equals(_lastOutfile)) {
+                      FileName.Text = FileUtils.GetFullPath(ui.CADFileTree.CADFile, mopnc.SourceFile);
                       _lastOutfile = mopnc.SourceFile;
-                      found       = true;
-                      break;
                     }
-                  }
-
-                  if (found)
+                    found       = true;
                     break;
+                  }
                 }
+
+                if (found)
+                  break;
               }
             }
           }
         }
       }
+      
       catch (Exception) { }
 
       if (!PlayButton.Enabled && CanPlay())
         PlayButton.Enabled = true;
+      FileName.Enabled = _writeThread == null;
     }
 
     private void Browse_Click(object sender, EventArgs e)
@@ -624,9 +627,10 @@ namespace GRBLMachine.UI
       ofd.RestoreDirectory = true;
       ofd.CheckFileExists  = true;
       ofd.DefaultExt       = ".nc";
-      
-      if (ofd.ShowDialog(this) == DialogResult.OK)
+
+      if (ofd.ShowDialog(this) == DialogResult.OK) {
         FileName.Text = ofd.FileName;
+      }
     }
 
     private void FileName_TextChanged(object sender, EventArgs e)
