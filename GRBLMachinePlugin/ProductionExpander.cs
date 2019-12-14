@@ -238,13 +238,15 @@ namespace GRBLMachine.UI
       _preChangeSpeed = _lastSpeed;
       _preChangeType  = _lastType;
 
+      ConnectionExpander.WriteCOMPort("M5"); // Disable spindle
+      WaitIdle();
       ConnectionExpander.WriteCOMPort(_jogLeadIn + "G53 " + (props.ToolChangeUnits == InchMM.Inches ? "G20" : "G21") + " F4000 G90 Z" + props.ToolChangeZ.ToString(EN_US));
       WaitIdle();
       ConnectionExpander.WriteCOMPort("S0");
       ConnectionExpander.WriteCOMPort(_jogLeadIn + "G53 " + (props.ToolChangeUnits == InchMM.Inches ? "G20" : "G21") + " F4000 G90 X" + props.ToolChangeX.ToString(EN_US) + " Y" + props.ToolChangeY.ToString(EN_US));
     }
 
-    private void JogFromToolChangePosition()
+    private void JogFromToolChangePosition(bool isManual)
     {
       GRBLProps props = GRBLMachinePlugin.Props;
 
@@ -254,18 +256,21 @@ namespace GRBLMachine.UI
         ConnectionExpander.WriteCOMPort(_jogLeadIn + "G53 " + (props.ToolChangeUnits == InchMM.Inches ? "G20" : "G21") + " F4000 G90 Z" + props.ToolChangeZ.ToString(EN_US));
       }
 
-      WaitIdle();
-      ConnectionExpander.WriteCOMPort(_jogLeadIn + (GRBLMachinePlugin.Props.ReportInInches == InchMM.Inches ? "G20" : "G21") + " F4000 G90 X" + _preChangeX.ToString(EN_US) + " Y" + _preChangeY.ToString(EN_US));
-      WaitIdle();
-      ConnectionExpander.WriteCOMPort("S" + _preChangeSpeed);
-      WaitIdle();
-      ConnectionExpander.WriteCOMPort(_jogLeadIn + (props.ReportInInches == InchMM.Inches ? "G20" : "G21") + " F" + 4000d                     .GetUnitsFromReportAndDrawing(InchMM.Millimeters,   props.ReportInInches).ToString("0.0000",EN_US) + " G90 Z" + (_preChangeZ + props.ToolChangePlungeDistance.GetUnitsFromReportAndDrawing(props.ToolChangeUnits,props.ReportInInches)).ToString("0.0000",EN_US));
-      ConnectionExpander.WriteCOMPort(_jogLeadIn + (props.ReportInInches == InchMM.Inches ? "G20" : "G21") + " F" + props.ToolChangePlungeFeed.GetUnitsFromReportAndDrawing(props.ToolChangeUnits,props.ReportInInches).ToString("0.0000",EN_US) + " G90 Z" + (_preChangeZ.ToString("0.0000",EN_US)));
+      if (isManual) {
+        // Return to previous position
+        WaitIdle();
+        ConnectionExpander.WriteCOMPort(_jogLeadIn + (GRBLMachinePlugin.Props.ReportInInches == InchMM.Inches ? "G20" : "G21") + " F4000 G90 X" + _preChangeX.ToString(EN_US) + " Y" + _preChangeY.ToString(EN_US));
+        WaitIdle();
+        ConnectionExpander.WriteCOMPort("S" + _preChangeSpeed);
+        WaitIdle();
+        ConnectionExpander.WriteCOMPort(_jogLeadIn + (props.ReportInInches == InchMM.Inches ? "G20" : "G21") + " F" + 4000d.GetUnitsFromReportAndDrawing(InchMM.Millimeters, props.ReportInInches).ToString("0.0000", EN_US) + " G90 Z" + (_preChangeZ + props.ToolChangePlungeDistance.GetUnitsFromReportAndDrawing(props.ToolChangeUnits, props.ReportInInches)).ToString("0.0000", EN_US));
+        ConnectionExpander.WriteCOMPort(_jogLeadIn + (props.ReportInInches == InchMM.Inches ? "G20" : "G21") + " F" + props.ToolChangePlungeFeed.GetUnitsFromReportAndDrawing(props.ToolChangeUnits, props.ReportInInches).ToString("0.0000", EN_US) + " G90 Z" + (_preChangeZ.ToString("0.0000", EN_US)));
+      }
 
       WaitIdle();
     }
 
-    private void DoToolChange(object line)
+    private void DoToolChange(object line, bool isManual)
     {
       Message("ToolChange start... ");
 
@@ -295,7 +300,7 @@ namespace GRBLMachine.UI
 
       _toolChangerEvent.WaitOne();
 
-      JogFromToolChangePosition();
+      JogFromToolChangePosition(isManual);
 
       ToolChangeEnd();
 
@@ -400,7 +405,12 @@ namespace GRBLMachine.UI
             switch (GRBLMachinePlugin.Props.ToolChangeProcess)
             {
               case IgnoreProcessPassOn.Ignore:                                         break;
-              case IgnoreProcessPassOn.Process: DoToolChange(line);                    break;
+              case IgnoreProcessPassOn.Process:
+                DialogResult result = MessageBox.Show($"Tool change: {line}\r\n\r\nPress [Yes] to initiate the toolchange\r\nPress [No] to continue without tool change. \r\n\r\nExecute tool change?", "Perform Toolchange?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes) {
+                  DoToolChange(line, false);
+                } 
+                break;
               case IgnoreProcessPassOn.PassOn:  ConnectionExpander.WriteCOMPort(line); break;
             }
           else
@@ -477,6 +487,7 @@ namespace GRBLMachine.UI
         ToolChange(toolChanger.SelectedToolDefinition);
 
       _toolChangerEvent.Set();
+      EnableButtons();
 
       toolChanger.Dispose();
     }
@@ -675,7 +686,17 @@ namespace GRBLMachine.UI
         CAMUtils.GenerateToolpaths(ui.ActiveView);
 
         // fit current drawing and current perspective to fit view
-        ui.ActiveView.ZoomToFitEx();
+        try {
+          // System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+          // at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+          // at CamBam.Extensions.CamBamExtenstions.GetScreenExtentsEx(CADFile cadfile, PointF & min, PointF & max, Matrix4x4F t)
+          // at CamBam.Extensions.CamBamExtenstions.ZoomToFitEx(ICADView icadview)
+          ui.ActiveView.ZoomToFitEx();
+        } catch (InvalidOperationException) {
+          try {
+            ui.ActiveView.ZoomToFitEx();
+          } catch (InvalidOperationException) { } // Happens sometimes :(
+        }
 
         // setup ISO-like perspective ( inspired from ViewToolbarAddins (y) )
         ViewProjection vp = ui.ActiveView.ViewProjection;
@@ -771,7 +792,7 @@ namespace GRBLMachine.UI
         return;
 
       ToolChangeButton.Enabled = false;
-      new Thread(DoToolChange) { Name = "ToolChangeThread", IsBackground = true }.Start("T0 M6 (NoPart\\GRBLMachine Default)");
+      new Thread(() => DoToolChange("T0 M6 (NoPart\\GRBLMachine Default)", true)) { Name = "ToolChangeThread", IsBackground = true }.Start();
     }
 
     #endregion // Eventhandlers

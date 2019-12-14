@@ -137,6 +137,7 @@ namespace GRBLMachine.UI
 
     public delegate void ApplyHandler(ToolChanger changer, ToolDefinition tooldef);
     public event         ApplyHandler Applied;
+    bool didZProbe = false;
 
 
     protected override void OnLoad(EventArgs e)
@@ -145,8 +146,11 @@ namespace GRBLMachine.UI
 
       XPropertyGridMetrics m = propertyInspector.GetMetrics();
       m.ShowAdvanced         = false;
+      didZProbe = false;
 
       propertyInspector.ApplyMetrics(m);
+
+      OK_Button.Enabled = Apply_Button.Enabled = (didZProbe && propertyInspector.SelectedObject != null);
     }
     protected override void OnClosed(EventArgs e)
     {
@@ -164,7 +168,7 @@ namespace GRBLMachine.UI
     {
       propertyInspector.SelectedObject = e.Node.Tag is ToolDefinition ? (e.Node.Tag as ToolDefinition).Clone() : null;
 
-      OK_Button.Enabled = Apply_Button.Enabled = propertyInspector.SelectedObject != null;
+      OK_Button.Enabled = Apply_Button.Enabled = (didZProbe && propertyInspector.SelectedObject != null);
     }
 
     private void OKButton_Click(object sender, EventArgs e)
@@ -183,6 +187,12 @@ namespace GRBLMachine.UI
     {
       if (Applied != null)
         Applied(this, SelectedToolDefinition);
+    }
+
+    private void ZProbeButton_Click(object sender, EventArgs e) {
+      ZProbe.ExecuteZProbe();
+      didZProbe = true;
+      OK_Button.Enabled = Apply_Button.Enabled = (didZProbe && propertyInspector.SelectedObject != null);
     }
   }
 }

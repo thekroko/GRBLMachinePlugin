@@ -154,6 +154,7 @@
     </Compile>
     <Compile Include="Tools.cs" />
     <Compile Include="Utils.cs" />
+    <Compile Include="ZProbe.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutExpander.resx">

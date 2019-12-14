@@ -93,12 +93,12 @@
       this.ContentPanel.Controls.Add(this.X_Min);
       this.ContentPanel.Controls.Add(this.X_Plus);
       this.ContentPanel.Enabled = false;
-      this.ContentPanel.Size = new System.Drawing.Size(305, 147);
+      this.ContentPanel.Size = new System.Drawing.Size(366, 131);
       // 
       // HeaderLabel
       // 
       this.HeaderLabel.Margin = new System.Windows.Forms.Padding(3, 0, 2, 0);
-      this.HeaderLabel.Size = new System.Drawing.Size(313, 19);
+      this.HeaderLabel.Size = new System.Drawing.Size(388, 19);
       this.HeaderLabel.Text = "Jogging";
       // 
       // X_Plus
@@ -110,7 +110,7 @@
       this.X_Plus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.X_Plus.Font = new System.Drawing.Font("Arial Black", 7.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.X_Plus.ForeColor = System.Drawing.Color.Yellow;
-      this.X_Plus.Location = new System.Drawing.Point(238, 34);
+      this.X_Plus.Location = new System.Drawing.Point(299, 34);
       this.X_Plus.Margin = new System.Windows.Forms.Padding(2);
       this.X_Plus.Name = "X_Plus";
       this.X_Plus.Size = new System.Drawing.Size(27, 29);
@@ -129,7 +129,7 @@
       this.X_Min.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.X_Min.Font = new System.Drawing.Font("Arial Black", 7.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.X_Min.ForeColor = System.Drawing.Color.Yellow;
-      this.X_Min.Location = new System.Drawing.Point(175, 34);
+      this.X_Min.Location = new System.Drawing.Point(236, 34);
       this.X_Min.Margin = new System.Windows.Forms.Padding(2);
       this.X_Min.Name = "X_Min";
       this.X_Min.Size = new System.Drawing.Size(27, 29);
@@ -148,7 +148,7 @@
       this.Y_Plus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.Y_Plus.Font = new System.Drawing.Font("Arial Black", 7.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Y_Plus.ForeColor = System.Drawing.Color.Yellow;
-      this.Y_Plus.Location = new System.Drawing.Point(207, 6);
+      this.Y_Plus.Location = new System.Drawing.Point(268, 6);
       this.Y_Plus.Margin = new System.Windows.Forms.Padding(2);
       this.Y_Plus.Name = "Y_Plus";
       this.Y_Plus.Size = new System.Drawing.Size(27, 29);
@@ -167,7 +167,7 @@
       this.Y_Min.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.Y_Min.Font = new System.Drawing.Font("Arial Black", 7.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Y_Min.ForeColor = System.Drawing.Color.Yellow;
-      this.Y_Min.Location = new System.Drawing.Point(207, 64);
+      this.Y_Min.Location = new System.Drawing.Point(268, 64);
       this.Y_Min.Margin = new System.Windows.Forms.Padding(2);
       this.Y_Min.Name = "Y_Min";
       this.Y_Min.Size = new System.Drawing.Size(27, 29);
@@ -186,7 +186,7 @@
       this.Z_Plus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.Z_Plus.Font = new System.Drawing.Font("Arial Black", 7.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Z_Plus.ForeColor = System.Drawing.Color.Yellow;
-      this.Z_Plus.Location = new System.Drawing.Point(271, 33);
+      this.Z_Plus.Location = new System.Drawing.Point(332, 33);
       this.Z_Plus.Margin = new System.Windows.Forms.Padding(2);
       this.Z_Plus.Name = "Z_Plus";
       this.Z_Plus.Size = new System.Drawing.Size(27, 29);
@@ -205,7 +205,7 @@
       this.Z_Min.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
       this.Z_Min.Font = new System.Drawing.Font("Arial Black", 7.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Z_Min.ForeColor = System.Drawing.Color.Yellow;
-      this.Z_Min.Location = new System.Drawing.Point(271, 61);
+      this.Z_Min.Location = new System.Drawing.Point(332, 61);
       this.Z_Min.Margin = new System.Windows.Forms.Padding(2);
       this.Z_Min.Name = "Z_Min";
       this.Z_Min.Size = new System.Drawing.Size(27, 29);
@@ -218,7 +218,7 @@
       // StepXY
       // 
       this.StepXY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.StepXY.Location = new System.Drawing.Point(174, 10);
+      this.StepXY.Location = new System.Drawing.Point(235, 10);
       this.StepXY.Margin = new System.Windows.Forms.Padding(2);
       this.StepXY.Name = "StepXY";
       this.StepXY.Size = new System.Drawing.Size(28, 20);
@@ -231,7 +231,7 @@
       // StepZ
       // 
       this.StepZ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.StepZ.Location = new System.Drawing.Point(270, 11);
+      this.StepZ.Location = new System.Drawing.Point(331, 11);
       this.StepZ.Margin = new System.Windows.Forms.Padding(2);
       this.StepZ.Name = "StepZ";
       this.StepZ.Size = new System.Drawing.Size(28, 20);
@@ -245,7 +245,7 @@
       // 
       this.Inches.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.Inches.AutoSize = true;
-      this.Inches.Location = new System.Drawing.Point(114, 70);
+      this.Inches.Location = new System.Drawing.Point(131, 73);
       this.Inches.Margin = new System.Windows.Forms.Padding(2);
       this.Inches.Name = "Inches";
       this.Inches.Size = new System.Drawing.Size(45, 17);
@@ -259,7 +259,7 @@
       this.Millimeters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.Millimeters.AutoSize = true;
       this.Millimeters.Checked = true;
-      this.Millimeters.Location = new System.Drawing.Point(114, 88);
+      this.Millimeters.Location = new System.Drawing.Point(180, 73);
       this.Millimeters.Margin = new System.Windows.Forms.Padding(2);
       this.Millimeters.Name = "Millimeters";
       this.Millimeters.Size = new System.Drawing.Size(41, 17);
@@ -381,7 +381,7 @@
       this.MouseJog.BackgroundImage = global::GRBLMachine.Properties.Resources.nav_plain_blue;
       this.MouseJog.BackgroundImageDisabled = global::GRBLMachine.Properties.Resources.nav_plain_gray;
       this.MouseJog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-      this.MouseJog.Location = new System.Drawing.Point(207, 34);
+      this.MouseJog.Location = new System.Drawing.Point(268, 34);
       this.MouseJog.Name = "MouseJog";
       this.MouseJog.Size = new System.Drawing.Size(26, 29);
       this.MouseJog.TabIndex = 17;
@@ -418,7 +418,7 @@
       this.PosA.ContextMenuStrip = this.storedPosCtxMenu;
       this.PosA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.PosA.ForeColor = System.Drawing.Color.White;
-      this.PosA.Location = new System.Drawing.Point(9, 117);
+      this.PosA.Location = new System.Drawing.Point(9, 101);
       this.PosA.Margin = new System.Windows.Forms.Padding(2);
       this.PosA.Name = "PosA";
       this.PosA.Size = new System.Drawing.Size(46, 29);
@@ -452,7 +452,7 @@
       this.PosB.ContextMenuStrip = this.storedPosCtxMenu;
       this.PosB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.PosB.ForeColor = System.Drawing.Color.White;
-      this.PosB.Location = new System.Drawing.Point(59, 117);
+      this.PosB.Location = new System.Drawing.Point(59, 101);
       this.PosB.Margin = new System.Windows.Forms.Padding(2);
       this.PosB.Name = "PosB";
       this.PosB.Size = new System.Drawing.Size(46, 29);
@@ -471,7 +471,7 @@
       this.Goto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.Goto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Goto.ForeColor = System.Drawing.Color.White;
-      this.Goto.Location = new System.Drawing.Point(118, 117);
+      this.Goto.Location = new System.Drawing.Point(118, 101);
       this.Goto.Margin = new System.Windows.Forms.Padding(2);
       this.Goto.Name = "Goto";
       this.Goto.Size = new System.Drawing.Size(58, 29);
@@ -485,10 +485,10 @@
       // 
       this.GotoText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-      this.GotoText.Location = new System.Drawing.Point(180, 122);
+      this.GotoText.Location = new System.Drawing.Point(180, 106);
       this.GotoText.Margin = new System.Windows.Forms.Padding(2);
       this.GotoText.Name = "GotoText";
-      this.GotoText.Size = new System.Drawing.Size(46, 20);
+      this.GotoText.Size = new System.Drawing.Size(107, 20);
       this.GotoText.TabIndex = 22;
       this.GotoText.Text = "X0 Y0";
       this.TheToolTip.SetToolTip(this.GotoText, "Step value for X and Y directions");
@@ -502,7 +502,7 @@
       this.GotoMouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.GotoMouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.GotoMouse.ForeColor = System.Drawing.Color.White;
-      this.GotoMouse.Location = new System.Drawing.Point(230, 116);
+      this.GotoMouse.Location = new System.Drawing.Point(291, 100);
       this.GotoMouse.Margin = new System.Windows.Forms.Padding(2);
       this.GotoMouse.Name = "GotoMouse";
       this.GotoMouse.Size = new System.Drawing.Size(75, 29);
@@ -532,7 +532,8 @@
       // 
       // SwitchTo1
       // 
-      this.SwitchTo1.Location = new System.Drawing.Point(166, 95);
+      this.SwitchTo1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.SwitchTo1.Location = new System.Drawing.Point(195, 7);
       this.SwitchTo1.Name = "SwitchTo1";
       this.SwitchTo1.Size = new System.Drawing.Size(27, 20);
       this.SwitchTo1.TabIndex = 25;
@@ -542,21 +543,23 @@
       // 
       // SwitchTo5
       // 
-      this.SwitchTo5.Location = new System.Drawing.Point(194, 95);
+      this.SwitchTo5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.SwitchTo5.Location = new System.Drawing.Point(195, 27);
       this.SwitchTo5.Name = "SwitchTo5";
       this.SwitchTo5.Size = new System.Drawing.Size(27, 20);
       this.SwitchTo5.TabIndex = 26;
-      this.SwitchTo5.Text = "5";
+      this.SwitchTo5.Text = "3";
       this.SwitchTo5.UseVisualStyleBackColor = true;
       this.SwitchTo5.Click += new System.EventHandler(this.SwitchTo5_Click);
       // 
       // SwitchTo10
       // 
-      this.SwitchTo10.Location = new System.Drawing.Point(221, 95);
+      this.SwitchTo10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.SwitchTo10.Location = new System.Drawing.Point(195, 47);
       this.SwitchTo10.Name = "SwitchTo10";
       this.SwitchTo10.Size = new System.Drawing.Size(27, 20);
       this.SwitchTo10.TabIndex = 27;
-      this.SwitchTo10.Text = "10";
+      this.SwitchTo10.Text = "5";
       this.SwitchTo10.UseVisualStyleBackColor = true;
       this.SwitchTo10.Click += new System.EventHandler(this.SwitchTo10_Click);
       // 
@@ -566,7 +569,7 @@
       this.AutoScroll = true;
       this.MinimumSize = new System.Drawing.Size(214, 0);
       this.Name = "JoggingExpander";
-      this.Size = new System.Drawing.Size(318, 176);
+      this.Size = new System.Drawing.Size(393, 160);
       this.Controls.SetChildIndex(this.ContentPanel, 0);
       this.Controls.SetChildIndex(this.HeaderLabel, 0);
       this.ContentPanel.ResumeLayout(false);

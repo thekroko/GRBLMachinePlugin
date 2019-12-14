@@ -130,6 +130,15 @@ namespace GRBLMachine.UI
       }
     }
 
+    /// <summary>
+    /// True if nearly all pending commands have been executed (i.e. no move & similar is pending)
+    /// </summary>
+    public static bool IsCOMPortNearlyIdle {
+      get {
+        return _writeQueue.Count <= 1;
+      }
+    }
+
     public static bool WriteCOMPort(char data)
     {
       try

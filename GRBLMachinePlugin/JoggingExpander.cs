@@ -182,7 +182,7 @@ namespace GRBLMachine.UI
     bool _mouseIsJogging = false;
     Point _mouseJogStart;
     Point _mouseJogDelta;
-    System.Windows.Forms.Timer _jogTimer = new System.Windows.Forms.Timer() { Interval = 200 };
+    System.Windows.Forms.Timer _jogTimer = new System.Windows.Forms.Timer() { Interval = 100 };
 
     private void MouseJog_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e) {
       Console.WriteLine($"Jogger Mouse Down {e.Location}");
@@ -214,12 +214,12 @@ namespace GRBLMachine.UI
         _jogTimer.Stop();
         return;
       }
-      /*if (!ConnectionExpander.IsCOMPortIdle) {
+      if (!ConnectionExpander.IsCOMPortNearlyIdle) {
         return; // Still moving
-      }*/
+      }
 
-      const float px2mm = 0.5f;
-      const float maxMmPerMove = 10;
+      const float px2mm = 0.3f;
+      const float maxMmPerMove = 3; // effectively dicates how much we might overshoot
       const float nominalFeed = 1000;
 
       float relX = Math.Abs(_mouseJogDelta.X) * px2mm;
@@ -237,7 +237,7 @@ namespace GRBLMachine.UI
       float moveY = relY * -Math.Sign(_mouseJogDelta.Y);
       float feed = speedPercent * nominalFeed;
 
-      ConnectionExpander.WriteCOMPort((char)0x85); // Jog cancel for previous jog
+      //ConnectionExpander.WriteCOMPort((char)0x85); // Jog cancel for previous jog
       ConnectionExpander.WriteCOMPortFmt("$J=G91 G21 X{0:+#;-#;+0} Y{1:+#;-#;+0} F{2}", moveX, moveY, feed);
     }
     #endregion
@@ -274,13 +274,7 @@ namespace GRBLMachine.UI
 
     private void ZProbeButton_Click(object sender, EventArgs e) {
       OriginButton.Enabled = false; // Will run your router drill into the workpiece ...
-      ThreadedGCodeExecute(
-        () => ConnectionExpander.WriteCOMPort("G43.1 Z0"), // Remove any existing tool offset
-        () => ConnectionExpander.WriteCOMPort("G10 L2 P0 Z0"), // Reset WCS to absolute machine 0 (Z-Probe target Z is based on WCS origin)
-        () => ConnectionExpander.WriteCOMPortFmt("G38.2 F200 Z{0}", GRBLMachinePlugin.Props.ZProbeToolDropTargetZ), // Perform Z-Probe
-        () => ConnectionExpander.WriteCOMPort("G10 L20 P0 Z0"), // Set WCS Z to probe Z
-        () => ConnectionExpander.WriteCOMPortFmt("G43.1 Z{0}", GRBLMachinePlugin.Props.ZProbeToolOffset) // Set tool offset again
-      );
+      ZProbe.ExecuteZProbe();
     }
 
     /// <summary>
@@ -292,7 +286,7 @@ namespace GRBLMachine.UI
       new Thread(() => {
         // Remove any existing tool offset
         foreach (Action gcode in actions) {
-          while (!ConnectionExpander.IsCOMPortIdle)
+          while (!ConnectionExpander.IsCOMPortIdle || GRBLMachinePlugin.CurrentMachineState != GRBLMachinePlugin.MachineState.Idle)
             Thread.Sleep(100);
           if (GRBLMachinePlugin.CurrentMachineState == GRBLMachinePlugin.MachineState.Alarm)
             return; // abort
@@ -346,11 +340,11 @@ namespace GRBLMachine.UI
     }
 
     private void SwitchTo5_Click(object sender, EventArgs e) {
-      StepXY.Text = StepZ.Text = "5";
+      StepXY.Text = StepZ.Text = "3";
     }
 
     private void SwitchTo10_Click(object sender, EventArgs e) {
-      StepXY.Text = StepZ.Text = "10";
+      StepXY.Text = StepZ.Text = "5";
     }
   }
 }

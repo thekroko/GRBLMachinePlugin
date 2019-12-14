@@ -35,6 +35,7 @@
             treeNode1,
             treeNode2,
             treeNode3});
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ToolChanger));
       this.propertyInspector = new CamBam.UI.XPropertyGrid();
       this.OK_Button = new System.Windows.Forms.Button();
       this.label1 = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@
       this.ToolLibraryTree = new System.Windows.Forms.TreeView();
       this.Apply_Button = new System.Windows.Forms.Button();
       this.Cancel_Button = new System.Windows.Forms.Button();
+      this.ZProbeButton = new GRBLMachine.UI.GRBLButton();
       this.splitContainer1.Panel1.SuspendLayout();
       this.splitContainer1.Panel2.SuspendLayout();
       this.splitContainer1.SuspendLayout();
@@ -53,11 +55,10 @@
       this.propertyInspector.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.propertyInspector.Dock = System.Windows.Forms.DockStyle.Fill;
       this.propertyInspector.Location = new System.Drawing.Point(0, 0);
-      this.propertyInspector.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
       this.propertyInspector.Name = "propertyInspector";
       this.propertyInspector.SelectedObject = null;
       this.propertyInspector.SelectedObjects = null;
-      this.propertyInspector.Size = new System.Drawing.Size(456, 309);
+      this.propertyInspector.Size = new System.Drawing.Size(343, 251);
       this.propertyInspector.TabIndex = 0;
       // 
       // OK_Button
@@ -65,9 +66,10 @@
       this.OK_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.OK_Button.DialogResult = System.Windows.Forms.DialogResult.OK;
       this.OK_Button.Enabled = false;
-      this.OK_Button.Location = new System.Drawing.Point(401, 334);
+      this.OK_Button.Location = new System.Drawing.Point(349, 271);
+      this.OK_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.OK_Button.Name = "OK_Button";
-      this.OK_Button.Size = new System.Drawing.Size(98, 37);
+      this.OK_Button.Size = new System.Drawing.Size(57, 30);
       this.OK_Button.TabIndex = 1;
       this.OK_Button.Text = "OK";
       this.OK_Button.UseVisualStyleBackColor = true;
@@ -76,9 +78,10 @@
       // label1
       // 
       this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(14, 344);
+      this.label1.Location = new System.Drawing.Point(10, 280);
+      this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(327, 17);
+      this.label1.Size = new System.Drawing.Size(245, 13);
       this.label1.TabIndex = 2;
       this.label1.Text = "Please select Tool Properties and change the tool.";
       // 
@@ -87,7 +90,8 @@
       this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-      this.splitContainer1.Location = new System.Drawing.Point(17, 12);
+      this.splitContainer1.Location = new System.Drawing.Point(13, 10);
+      this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.splitContainer1.Name = "splitContainer1";
       // 
       // splitContainer1.Panel1
@@ -97,14 +101,16 @@
       // splitContainer1.Panel2
       // 
       this.splitContainer1.Panel2.Controls.Add(this.propertyInspector);
-      this.splitContainer1.Size = new System.Drawing.Size(690, 309);
-      this.splitContainer1.SplitterDistance = 230;
+      this.splitContainer1.Size = new System.Drawing.Size(518, 251);
+      this.splitContainer1.SplitterDistance = 172;
+      this.splitContainer1.SplitterWidth = 3;
       this.splitContainer1.TabIndex = 4;
       // 
       // ToolLibraryTree
       // 
       this.ToolLibraryTree.Dock = System.Windows.Forms.DockStyle.Fill;
       this.ToolLibraryTree.Location = new System.Drawing.Point(0, 0);
+      this.ToolLibraryTree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.ToolLibraryTree.Name = "ToolLibraryTree";
       treeNode1.Name = "Node1";
       treeNode1.Text = "Node1";
@@ -116,7 +122,7 @@
       treeNode4.Text = "Tool Libraries";
       this.ToolLibraryTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode4});
-      this.ToolLibraryTree.Size = new System.Drawing.Size(230, 309);
+      this.ToolLibraryTree.Size = new System.Drawing.Size(172, 251);
       this.ToolLibraryTree.TabIndex = 0;
       this.ToolLibraryTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.ToolLibraryTree_NodeMouseClick);
       // 
@@ -125,9 +131,10 @@
       this.Apply_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.Apply_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel;
       this.Apply_Button.Enabled = false;
-      this.Apply_Button.Location = new System.Drawing.Point(609, 334);
+      this.Apply_Button.Location = new System.Drawing.Point(472, 271);
+      this.Apply_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.Apply_Button.Name = "Apply_Button";
-      this.Apply_Button.Size = new System.Drawing.Size(98, 37);
+      this.Apply_Button.Size = new System.Drawing.Size(59, 30);
       this.Apply_Button.TabIndex = 5;
       this.Apply_Button.Text = "Apply";
       this.Apply_Button.Click += new System.EventHandler(this.ApplyButton_Click);
@@ -136,25 +143,45 @@
       // 
       this.Cancel_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-      this.Cancel_Button.Location = new System.Drawing.Point(505, 334);
+      this.Cancel_Button.Location = new System.Drawing.Point(410, 271);
+      this.Cancel_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.Cancel_Button.Name = "Cancel_Button";
-      this.Cancel_Button.Size = new System.Drawing.Size(98, 37);
+      this.Cancel_Button.Size = new System.Drawing.Size(58, 30);
       this.Cancel_Button.TabIndex = 6;
       this.Cancel_Button.Text = "Cancel";
       this.Cancel_Button.UseVisualStyleBackColor = true;
       this.Cancel_Button.Click += new System.EventHandler(this.CancelButton_Click);
       // 
+      // ZProbeButton
+      // 
+      this.ZProbeButton.BackColor = System.Drawing.SystemColors.ControlDark;
+      this.ZProbeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ZProbeButton.BackgroundImage")));
+      this.ZProbeButton.BackgroundImageDisabled = global::GRBLMachine.Properties.Resources.media_stop_gray;
+      this.ZProbeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.ZProbeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ZProbeButton.ForeColor = System.Drawing.Color.Yellow;
+      this.ZProbeButton.Location = new System.Drawing.Point(294, 272);
+      this.ZProbeButton.Margin = new System.Windows.Forms.Padding(2);
+      this.ZProbeButton.Name = "ZProbeButton";
+      this.ZProbeButton.Size = new System.Drawing.Size(51, 29);
+      this.ZProbeButton.TabIndex = 19;
+      this.ZProbeButton.Text = "Z-PB";
+      this.ZProbeButton.UseVisualStyleBackColor = false;
+      this.ZProbeButton.Click += new System.EventHandler(this.ZProbeButton_Click);
+      // 
       // ToolChanger
       // 
       this.AcceptButton = this.OK_Button;
-      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(719, 383);
+      this.ClientSize = new System.Drawing.Size(539, 311);
+      this.Controls.Add(this.ZProbeButton);
       this.Controls.Add(this.Cancel_Button);
       this.Controls.Add(this.Apply_Button);
       this.Controls.Add(this.splitContainer1);
       this.Controls.Add(this.label1);
       this.Controls.Add(this.OK_Button);
+      this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.Name = "ToolChanger";
       this.ShowInTaskbar = false;
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -176,5 +203,6 @@
     private System.Windows.Forms.TreeView ToolLibraryTree;
     private System.Windows.Forms.Button Apply_Button;
     private System.Windows.Forms.Button Cancel_Button;
+    private GRBLButton ZProbeButton;
   }
 }
