@@ -5,6 +5,10 @@ This is a slightly modified version of the GRBLMachinePlugin (based on the v1.0.
 * Jogging: Support for "go to mouse click"
 * Jogging: Support for keyboard shortcuts
 ![Jogging](jogging.png)
+* Minor bugfixes in the existing GRBLMachine code
+
+## Download
+Download the latest plugin on the [Releases](https://github.com/thekroko/GRBLMachinePlugin/releases) page.
 
 ## Changelog
 
